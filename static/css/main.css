@@ -1168,15 +1168,15 @@ section,
 
 .work-steps .service-item {
   border-radius: 24px;
-  padding: 48px 36px;
+  padding: 36px 28px;
   text-align: left;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 92%), var(--surface-color));
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
-  box-shadow: 0 18px 40px -30px rgba(15, 23, 42, 0.45);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--accent-color), #f1f1f1 92%), #e9e6df);
+  border: 1px solid color-mix(in srgb, var(--accent-color), #9a9a9a 80%);
+  box-shadow: 0 14px 32px -28px rgba(28, 28, 28, 0.45);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  min-height: 420px;
+  gap: 8px;
+  min-height: 320px;
   height: 100%;
 }
 
@@ -1448,14 +1448,15 @@ section,
 }
 
 .testimonials .testimonial-item {
-  text-align: left;
-  background: color-mix(in srgb, var(--surface-color), transparent 12%);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  text-align: center;
+  background: color-mix(in srgb, var(--surface-color), #d9d7d2 40%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
   border-radius: 24px;
-  padding: 32px;
+  padding: 28px;
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
 }
 
@@ -1469,7 +1470,7 @@ section,
 .testimonials .testimonial-item h3 {
   font-size: 20px;
   font-weight: bold;
-  margin: 10px 0 5px 0;
+  margin: 6px 0 4px 0;
 }
 
 .testimonials .testimonial-item h4 {
@@ -1512,6 +1513,7 @@ section,
   margin: 0;
   font-style: normal;
   color: color-mix(in srgb, var(--default-color), transparent 10%);
+  max-width: 540px;
 }
 
 .testimonials .testimonial-cite {
@@ -1526,6 +1528,7 @@ section,
 .testimonials .swiper-slide {
   height: auto;
   display: flex;
+  padding: 0 10px;
 }
 
 .testimonials .swiper-slide .testimonial-item {
@@ -1552,6 +1555,17 @@ section,
 @media (min-width: 992px) {
   .testimonials .testimonial-item p {
     width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials .testimonial-item h3 {
+    font-size: 18px;
+  }
+
+  .testimonials .testimonial-item p {
+    font-size: 14px;
+    line-height: 1.4;
   }
 }
 
