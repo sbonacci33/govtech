@@ -1011,6 +1011,16 @@ section,
   font-size: 1.25rem;
 }
 
+.about-needs li {
+  gap: 10px;
+  line-height: 1.5;
+  padding-top: 12px;
+}
+
+.about-needs li:first-child {
+  padding-top: 0;
+}
+
 .about .content p:last-child {
   margin-bottom: 0;
 }
@@ -1133,6 +1143,56 @@ section,
 .services .service-item:hover {
   box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
   transform: translateY(-10px);
+}
+
+.work-steps .service-item {
+  border-radius: 24px;
+  padding: 48px 36px;
+  text-align: left;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 92%), var(--surface-color));
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+  box-shadow: 0 18px 40px -30px rgba(15, 23, 42, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 420px;
+}
+
+.work-steps .service-item:hover {
+  transform: translateY(-6px);
+}
+
+.work-steps .service-item .icon {
+  margin: 0 0 12px 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  color: var(--contrast-color);
+  justify-content: center;
+}
+
+.work-steps .service-item .icon i {
+  font-size: 24px;
+}
+
+.work-steps .step-badge {
+  position: absolute;
+  top: 26px;
+  right: 28px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  background: color-mix(in srgb, var(--accent-color), transparent 80%);
+  color: var(--heading-color);
+}
+
+@media (max-width: 991px) {
+  .work-steps .service-item {
+    min-height: auto;
+  }
 }
 
 /*--------------------------------------------------------------
