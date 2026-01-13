@@ -1015,10 +1015,25 @@ section,
   gap: 10px;
   line-height: 1.5;
   padding-top: 12px;
+  font-size: 0.98rem;
+  align-items: flex-start;
 }
 
 .about-needs li:first-child {
   padding-top: 0;
+}
+
+.about-needs li i {
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  margin-top: 2px;
+}
+
+.about-cta {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--heading-color);
 }
 
 .about .content p:last-child {
@@ -1103,9 +1118,15 @@ section,
   background-color: var(--surface-color);
   text-align: center;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-  padding: 80px 20px;
+  padding: 64px 28px;
   height: 100%;
   transition: all ease-in-out 0.3s;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 18px 35px -30px rgba(15, 23, 42, 0.4);
+  min-height: 360px;
 }
 
 .services .service-item .icon {
@@ -1156,6 +1177,7 @@ section,
   flex-direction: column;
   gap: 10px;
   min-height: 420px;
+  height: 100%;
 }
 
 .work-steps .service-item:hover {
@@ -1426,7 +1448,15 @@ section,
 }
 
 .testimonials .testimonial-item {
-  text-align: center;
+  text-align: left;
+  background: color-mix(in srgb, var(--surface-color), transparent 12%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 24px;
+  padding: 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .testimonials .testimonial-item .testimonial-img {
@@ -1479,12 +1509,27 @@ section,
 }
 
 .testimonials .testimonial-item p {
+  margin: 0;
+  font-style: normal;
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+}
+
+.testimonials .testimonial-cite {
   font-style: italic;
-  margin: 0 auto 15px auto;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
 }
 
 .testimonials .swiper-wrapper {
   height: auto;
+}
+
+.testimonials .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.testimonials .swiper-slide .testimonial-item {
+  width: 100%;
 }
 
 .testimonials .swiper-pagination {
