@@ -767,6 +767,76 @@ section,
   overflow: clip;
 }
 
+.section-block {
+  padding: 90px 0;
+}
+
+.section-block-muted {
+  background-color: #f5f6f8;
+}
+
+.block-subsection {
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 28px;
+  padding: 48px;
+  box-shadow: 0 18px 45px rgba(15, 17, 20, 0.08);
+}
+
+.block-subsection + .block-subsection {
+  margin-top: 32px;
+}
+
+.block-subsection-full {
+  margin-top: 48px;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.subsection-title {
+  margin-bottom: 32px;
+}
+
+.subsection-title h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--heading-color);
+}
+
+.subsection-title h3::after {
+  content: "";
+  width: 64px;
+  height: 2px;
+  display: block;
+  background: var(--accent-color);
+  margin-top: 10px;
+}
+
+.subsection-title p {
+  margin: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.subsection-title.text-center h3::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subsection-title.text-center p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+}
+
+.trayectoria-block {
+  background: color-mix(in srgb, var(--background-color), transparent 25%);
+}
+
 @media (max-width: 1199px) {
 
   section,
@@ -866,6 +936,15 @@ section,
   z-index: 2;
 }
 
+.hero:after {
+  content: "";
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 35%, rgba(0, 0, 0, 0) 70%);
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
 .hero .container {
   position: relative;
   z-index: 3;
@@ -919,16 +998,31 @@ section,
   margin-top: 8px;
 }
 
+.hero .hero-eyebrow {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  color: color-mix(in srgb, var(--default-color), transparent 45%);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
 .hero .icon-box {
-  padding: 30px 20px;
-  transition: ease-in-out 0.3s;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  padding: 36px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 18px;
+  background: rgba(12, 12, 12, 0.45);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: default;
 }
 
 .hero .icon-box i {
@@ -938,25 +1032,12 @@ section,
 }
 
 .hero .icon-box h3 {
-  font-weight: 700;
+  font-weight: 600;
   margin: 10px 0 0 0;
   padding: 0;
-  line-height: 1;
-  font-size: 20px;
-  line-height: 26px;
-}
-
-.hero .icon-box h3 a {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  transition: ease-in-out 0.3s;
-}
-
-.hero .icon-box:hover {
-  border-color: var(--accent-color);
-}
-
-.hero .icon-box:hover h3 a {
-  color: var(--accent-color);
+  font-size: 18px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
 
 @media (max-width: 768px) {
@@ -1185,7 +1266,7 @@ section,
   opacity: 0.98;
 }
 
-.work-steps .container {
+.work-steps > * {
   position: relative;
   z-index: 1;
 }
