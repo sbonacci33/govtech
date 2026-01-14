@@ -41,7 +41,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="#inicio" class="logo d-flex align-items-center me-auto me-lg-0">
+      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="{{ url_for('static', filename='img/logo.png') }}" alt=""> -->
         <span class="logo-mark">S</span>
@@ -51,20 +51,15 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#inicio" class="active">Inicio</a></li>
-          <li><a href="#about">Síntesis 360</a></li>
-          <li><a href="#como-trabajamos">De prioridades a resultados</a></li>
-          <li><a href="#metodologia">Metodología</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#areas">Áreas de aplicación</a></li>
-          <li><a href="#casos">Trayectoria</a></li>
-          <li><a href="#equipo">Equipo</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="{{ url_for('home') }}#about" class="active">Nuestro trabajo</a></li>
+          <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+          <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
+          <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="#contacto">Solicitar demo</a>
+      <a class="btn-getstarted" href="{{ url_for('contacto') }}">Solicitar demo</a>
 
     </div>
   </header>
@@ -83,7 +78,7 @@
             <h1 class="hero-title">SÍNTESIS <span class="hero-title-number">360</span><span class="hero-title-dot" aria-hidden="true">•</span></h1>
             <p class="hero-lead">Inteligencia de gestión | Eficiencia organizacional</p>
             <p class="hero-support">Potenciamos la ejecución institucional con prioridades claras, tableros operables y seguimiento verificable.</p>
-            <a class="btn btn-warning text-dark mt-3" href="#contacto">Solicitar demo</a>
+            <a class="btn btn-warning text-dark mt-3" href="{{ url_for('contacto') }}">Solicitar demo</a>
           </div>
         </div>
 
@@ -91,7 +86,7 @@
           <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <i class="bi bi-binoculars"></i>
-              <h3><a href="#servicios">Prioridades basadas en evidencia</a></h3>
+              <h3><a href="{{ url_for('servicios') }}">Prioridades basadas en evidencia</a></h3>
             </div>
           </div>
           <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="400">
@@ -109,13 +104,13 @@
           <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="600">
             <div class="icon-box">
               <i class="bi bi-card-list"></i>
-              <h3><a href="#casos">Trazabilidad de resultados</a></h3>
+              <h3><a href="{{ url_for('equipo') }}#trayectoria">Trazabilidad de resultados</a></h3>
             </div>
           </div>
           <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="700">
             <div class="icon-box">
               <i class="bi bi-gem"></i>
-              <h3><a href="#contacto">Implementación sostenible</a></h3>
+              <h3><a href="{{ url_for('contacto') }}">Implementación sostenible</a></h3>
             </div>
           </div>
         </div>
@@ -153,7 +148,7 @@
         </div>
 
         <div class="about-highlight mt-4 text-center">
-          <p class="mb-0"><strong>Una organización eficiente planifica orientada a metas claras, coordina responsables y sostiene resultados verificables.</strong> <a href="#contacto">Contactanos</a>.</p>
+          <p class="mb-0"><strong>Una organización eficiente planifica orientada a metas claras, coordina responsables y sostiene resultados verificables.</strong> <a href="{{ url_for('contacto') }}">Contactanos</a>.</p>
         </div>
 
       </div>
@@ -269,128 +264,6 @@
 
     </section><!-- /Features Section -->
 
-    <!-- Services Section -->
-    <section id="servicios" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Nuestros Servicios</h2>
-        <p>Una gestión eficiente necesita foco, información clara y un sistema simple para ejecutar y sostener resultados. Por eso, en Síntesis 360 ofrecemos propuestas modulares que pueden implementarse de forma integral o combinarse según el punto de partida de cada institución.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative text-start">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
-              </div>
-              <h3>Mapa de Prioridades</h3>
-              <p>Ordenamos la agenda real y definimos un foco claro para las próximas semanas. Identificamos qué es crítico, qué está trabado y qué depende de qué, para que la organización comparta una lectura común y pueda decidir con claridad.</p>
-              <p class="mb-2"><strong>Incluye:</strong></p>
-              <ul class="mb-0">
-                <li>Mapa de prioridades (temas/proyectos críticos)</li>
-                <li>Responsables por prioridad y próximos pasos</li>
-                <li>Principales trabas y dependencias</li>
-                <li>Lista corta de decisiones y acciones inmediatas</li>
-              </ul>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative text-start">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <h3>Plan 30–60–90</h3>
-              <p>Convertimos prioridades en un plan ejecutable para el primer mes, segundo y tercero. Traducimos objetivos en acciones concretas, responsables, plazos y puntos de control verificables, dejando el trabajo listo para coordinar áreas y sostener el avance.</p>
-              <p class="mb-2"><strong>Incluye:</strong></p>
-              <ul class="mb-0">
-                <li>Objetivos por prioridad y metas de corto plazo</li>
-                <li>Acciones, responsables y fechas</li>
-                <li>Hitos verificables para control de avance</li>
-                <li>Dependencias entre áreas y riesgos principales</li>
-              </ul>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative text-start">
-              <div class="icon">
-                <i class="bi bi-bar-chart-line"></i>
-              </div>
-              <h3>Tablero de Gestión</h3>
-              <p>Diseñamos un tablero simple y mantenible, alineado a las prioridades definidas. Seleccionamos pocos indicadores clave y acordamos definiciones comunes para leer avances de forma consistente semana a semana y mes a mes.</p>
-              <p class="mb-2"><strong>Incluye:</strong></p>
-              <ul class="mb-0">
-                <li>Indicadores clave (pocos y relevantes)</li>
-                <li>Definiciones, fuentes y responsables de actualización</li>
-                <li>Tablero operable (según herramientas disponibles)</li>
-                <li>Formatos estándar de reporte semanal y mensual</li>
-              </ul>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative text-start">
-              <div class="icon">
-                <i class="bi bi-arrow-repeat"></i>
-              </div>
-              <h3>Ritmo de Ejecución</h3>
-              <p>Instalamos una rutina de seguimiento para sostener el plan en marcha con revisión periódica. Consolidamos avances, alertas tempranas y próximos pasos, con registro claro de decisiones y ajustes para corregir a tiempo sin perder continuidad.</p>
-              <p class="mb-2"><strong>Incluye:</strong></p>
-              <ul class="mb-0">
-                <li>Brief semanal (estado, alertas y próximos pasos)</li>
-                <li>Reporte mensual (avances, desvíos y decisiones)</li>
-                <li>Registro de acuerdos y ajustes de seguimiento</li>
-                <li>Rutina de revisión instalada con responsables</li>
-              </ul>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative text-start">
-              <div class="icon">
-                <i class="bi bi-diagram-3"></i>
-              </div>
-              <h3>Coordinación y Metas</h3>
-              <p>Alineamos metas, responsables y circuitos de decisión para ejecutar con un criterio común. Definimos acuerdos simples de coordinación entre áreas y una dinámica de trabajo que mejora la implementación y reduce ambigüedades.</p>
-              <p class="mb-2"><strong>Incluye:</strong></p>
-              <ul class="mb-0">
-                <li>Metas y prioridades acordadas con responsables</li>
-                <li>Roles y circuito de decisión (quién decide, quién ejecuta, quién reporta)</li>
-                <li>Acuerdos de coordinación entre áreas</li>
-                <li>Reuniones breves con agenda y seguimiento</li>
-              </ul>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative text-start">
-              <div class="icon">
-                <i class="bi bi-mortarboard"></i>
-              </div>
-              <h3>Formación y Tutoría en Gestión con Datos</h3>
-              <p>Fortalecemos capacidades internas para sostener el sistema sin depender de terceros. Trabajamos con equipos en criterios de seguimiento, construcción de indicadores, lectura de reportes y mejora de rutinas, con acompañamiento aplicado.</p>
-              <p class="mb-2"><strong>Incluye:</strong></p>
-              <ul class="mb-0">
-                <li>Capacitación práctica para equipos y responsables</li>
-                <li>Guías y plantillas (indicadores, reportes, seguimiento)</li>
-                <li>Tutorías aplicadas durante la implementación</li>
-                <li>Recomendaciones de mejora continua según resultados</li>
-              </ul>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-        <p class="fst-italic mt-4 mb-0 text-center">Estos módulos pueden implementarse por separado o combinarse en una propuesta integral, según las prioridades y capacidades de cada organización. Coordinemos una reunión inicial para definir el alcance y la mejor forma de implementación.</p>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section dark-background">
 
@@ -402,7 +275,7 @@
             <div class="text-center">
               <h3>Presentación ejecutiva</h3>
               <p>Una presentación de Síntesis 360 permite visualizar el mapa de prioridades, el plan 30–60–90 y los formatos de brief semanal y reporte mensual, en un estándar institucional listo para implementar.</p>
-              <a class="cta-btn" href="#contacto">Solicitar demo</a>
+              <a class="cta-btn" href="{{ url_for('contacto') }}">Solicitar demo</a>
             </div>
           </div>
         </div>
@@ -486,25 +359,6 @@
       </div>
 
     </section><!-- /Áreas Section -->
-
-    <!-- Trayectoria Section -->
-    <section id="casos" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-title text-center" data-aos="fade-up">
-          <h2>Trayectoria y enfoque</h2>
-          <p>Somos un equipo interdisciplinario con experiencia en gestión pública e institucional, orientado a mejorar la eficiencia organizacional a través de prioridades claras, planificación operable y seguimiento consistente.</p>
-        </div>
-
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <p><strong>Combinamos capacidades en planificación y coordinación</strong>, ejecución de programas y planes de acción, y análisis de información para convertir lo disponible (registros, reportes, sistemas y planillas) en decisiones concretas con responsables y plazos.</p>
-            <p class="mb-0"><strong>Nuestro trabajo integra gestión, datos y comunicación institucional</strong>, para sostener avances verificables y producir reportes claros que faciliten la toma de decisiones, la coordinación interna y la rendición de cuentas.</p>
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Trayectoria Section -->
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section dark-background">
@@ -607,161 +461,6 @@
 
     </section><!-- /Testimonials Section -->
 
-    <!-- Equipo Section -->
-    <section id="equipo" class="team section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Equipo</h2>
-        <p>Equipo interdisciplinario con experiencia en gestión pública, comunicación institucional y análisis de información. Diseñamos sistemas simples y acompañamos la implementación hasta que se sostienen en el día a día.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{{ url_for('static', filename='img/team/team-1.jpg') }}" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h3>Gestión pública y planificación</h3>
-                <span>Diseño de prioridades, enfoque por resultados y alineación de equipos y responsabilidades.</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{{ url_for('static', filename='img/team/team-2.jpg') }}" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h3>Analítica de datos e información</h3>
-                <span>Modelos mínimos, validación, indicadores y tableros orientados a decisiones.</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{{ url_for('static', filename='img/team/team-3.jpg') }}" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h3>Implementación y adopción</h3>
-                <span>Rutinas, capacitación y sostenimiento operativo para que el sistema funcione en la práctica.</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{{ url_for('static', filename='img/team/team-4.jpg') }}" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h3>Comunicación institucional verificable</h3>
-                <span>Reportes consistentes y narrativa pública basada en resultados y evidencias.</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Team Section -->
-
-    <!-- Contact Section -->
-    <section id="contacto" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contacto</h2>
-        <p>Coordinemos una demo o una conversación inicial. Respondemos en 48 horas hábiles.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Modalidad</h3>
-                <p>Trabajo remoto y presencial según necesidad institucional.</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Respuesta</h3>
-                <p>Enviamos confirmación y agenda en 48 horas hábiles.</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Correo institucional</h3>
-                <p>contacto@sintesis360.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
-
-          <div class="col-lg-8">
-            <form action="{{ url_for('static', filename='forms/contact.php') }}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label class="form-label" for="contacto-nombre">Nombre y apellido</label>
-                  <input type="text" id="contacto-nombre" name="name" class="form-control" placeholder="Tu nombre" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <label class="form-label" for="contacto-organizacion">Organización</label>
-                  <input type="text" id="contacto-organizacion" class="form-control" name="organization" placeholder="Nombre de la institución" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label class="form-label" for="contacto-cargo">Cargo</label>
-                  <input type="text" id="contacto-cargo" class="form-control" name="role" placeholder="Tu rol" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label class="form-label" for="contacto-email">Email</label>
-                  <input type="email" id="contacto-email" class="form-control" name="email" placeholder="tuemail@organizacion.com" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label class="form-label" for="contacto-mensaje">Mensaje</label>
-                  <textarea class="form-control" id="contacto-mensaje" name="message" rows="6" placeholder="Contanos qué están buscando mejorar y en qué plazo." required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Enviando...</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Tu mensaje fue enviado. ¡Gracias!</div>
-
-                  <button type="submit">Solicitar demo</button>
-                  <p class="small mt-3">Al enviar este formulario aceptás que Síntesis 360 te contacte para coordinar una demo. No compartimos tus datos con terceros.</p>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
   </main>
 
   <footer id="footer" class="footer dark-background">
@@ -770,7 +469,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6 footer-about">
-            <a href="#inicio" class="logo d-flex align-items-center">
+            <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
               <span class="sitename">Síntesis 360</span>
             </a>
             <div class="footer-contact pt-3">
@@ -788,10 +487,10 @@
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Links</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#inicio">Inicio</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#servicios">Servicios</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#metodologia">Metodología</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#contacto">Contacto</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{ url_for('home') }}#about">Nuestro trabajo</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{ url_for('servicios') }}">Servicios</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{ url_for('equipo') }}">Equipo</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{ url_for('contacto') }}">Contacto</a></li>
             </ul>
           </div>
 
