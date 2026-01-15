@@ -919,6 +919,13 @@ section,
   margin-top: 8px;
 }
 
+.hero .hero-claim {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-top: 8px;
+}
+
 .hero .icon-box {
   padding: 30px 20px;
   transition: ease-in-out 0.3s;
@@ -960,6 +967,22 @@ section,
 }
 
 @media (max-width: 768px) {
+  .hero .hero-icon-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .hero .hero-icon-row > [class*="col-"] {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .hero .hero-icon-row > [class*="col-"]:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+
   .hero h2,
   .hero h1 {
     font-size: 32px;
@@ -978,6 +1001,10 @@ section,
   }
 
   .hero .hero-support {
+    font-size: 16px;
+  }
+
+  .hero .hero-claim {
     font-size: 16px;
   }
 }
