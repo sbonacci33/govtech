@@ -4,531 +4,232 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Inteligencia de gestión basada en evidencia</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Observatorio CO | Clima de Opinión</title>
+  <meta name="description" content="Observatorio de Clima de Opinión: social listening y monitoreo de interés público.">
+  <meta name="keywords" content="observatorio, clima de opinión, social listening, monitoreo">
 
-  <!-- Favicons -->
   <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
   <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="{{ url_for('static', filename='css/main.css', v='2024-09-25') }}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Gp
-  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-  * Updated: Aug 15 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <link href="{{ url_for('static', filename='css/main.css', v='2026-02-18') }}" rel="stylesheet">
 </head>
 
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
       <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="{{ url_for('static', filename='img/logo.png') }}" alt=""> -->
-        <span class="logo-mark">S</span>
-        <span class="logo-number">360</span>
+        <span class="logo-mark">Observatorio</span>
         <span class="logo-dot" aria-hidden="true">•</span>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{{ url_for('home') }}#about" class="active">Nuestro trabajo</a></li>
-          <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
-          <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
+          <li><a href="{{ url_for('home') }}" class="active">Inicio</a></li>
+          <li><a href="{{ url_for('home') }}#como-funciona">Cómo funciona</a></li>
+          <li><a href="{{ url_for('home') }}#planes">Planes</a></li>
+          <li><a href="{{ url_for('home') }}#metodologia">Metodología</a></li>
           <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
     </div>
   </header>
 
   <main class="main">
-
-    <!-- Hero Section -->
     <section id="inicio" class="hero section dark-background">
-
-      <img src="{{ url_for('static', filename='img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
-
+      <img src="{{ url_for('static', filename='img/hero-bg.jpg') }}" alt="Fondo Observatorio" data-aos="fade-in">
       <div class="container">
-
         <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-xl-6 col-lg-8">
-            <h1 class="hero-title">SÍNTESIS <span class="hero-title-number">360</span><span class="hero-title-dot" aria-hidden="true">•</span></h1>
-            <p class="hero-lead">Inteligencia de gestión | Eficiencia organizacional</p>
-            <a class="btn btn-warning text-dark mt-3" href="{{ url_for('contacto') }}">Solicitar demo</a>
-            <p class="hero-claim">Convertimos prioridades en resultados verificables.</p>
+          <div class="col-xl-9 col-lg-10">
+            <h1>Observatorio de Clima de Opinión</h1>
+            <p class="hero-lead">Monitoreo de interés público y narrativa: menciones, temas, asociaciones y picos.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+              <span class="badge text-bg-light">Córdoba, Argentina</span>
+              <span class="badge construction-badge">MVP en construcción</span>
+            </div>
+            <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+              <a class="btn btn-warning text-dark" href="{{ url_for('contacto') }}">Solicitar demo</a>
+              <a class="btn btn-outline-light" href="#metodologia">Ver metodología</a>
+            </div>
+            <p class="hero-claim mt-4">Este sitio presenta el enfoque y la metodología. El tablero público está en preparación.</p>
           </div>
         </div>
-
-        <div class="row gy-4 mt-5 justify-content-center hero-icon-row" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon-box">
-              <i class="bi bi-binoculars"></i>
-              <h3><a href="{{ url_for('servicios') }}">Prioridades basadas en evidencia</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon-box">
-              <i class="bi bi-bullseye"></i>
-              <h3><a href="#metodologia">Plan 30–60–90</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon-box">
-              <i class="bi bi-fullscreen-exit"></i>
-              <h3><a href="#areas">Tableros ejecutivos</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon-box">
-              <i class="bi bi-card-list"></i>
-              <h3><a href="{{ url_for('equipo') }}#trayectoria">Trazabilidad de resultados</a></h3>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="700">
-            <div class="icon-box">
-              <i class="bi bi-gem"></i>
-              <h3><a href="{{ url_for('contacto') }}">Implementación sostenible</a></h3>
-            </div>
-          </div>
-        </div>
-
       </div>
+    </section>
 
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-          <div class="col-lg-6 order-1 order-lg-2">
-            <img src="{{ url_for('static', filename='img/about.jpg') }}" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 order-2 order-lg-1 content">
-            <h2 class="section-heading">Síntesis 360</h2>
-            <p class="mb-3">
-              Somos un equipo de profesionales que ayuda a gobiernos e instituciones públicas a convertir <strong>prioridades en resultados verificables</strong>. Ordenamos la <strong>agenda real</strong>, bajamos objetivos a un <strong>plan ejecutable</strong> y dejamos un <strong>sistema simple</strong> para sostener el avance.
-            </p>
-            <p class="mb-4">
-              ¿Qué hacemos, en concreto? <strong>Definimos prioridades y metas</strong>, armamos un <strong>plan 30–60–90</strong> con responsables y plazos, diseñamos <strong>tableros operables</strong> (pocos indicadores clave) e instalamos un <strong>ritmo de seguimiento</strong> (brief semanal y reporte mensual) para detectar trabas a tiempo, corregir desvíos y tomar decisiones con respaldo — sin sumar burocracia.
-            </p>
-            <p class="mb-2">Si tu organización necesita:</p>
-            <ul class="list-unstyled about-needs mb-4">
-              <li><i class="bi bi-check2"></i><span><strong>Pasar de urgencias dispersas</strong> a <strong>prioridades claras y un plan</strong> (qué se hace, quién lo hace y para cuándo).</span></li>
-              <li><i class="bi bi-check2"></i><span><strong>Leer el avance con confianza</strong>: hitos + <strong>indicadores clave</strong> + reportes comparables.</span></li>
-              <li><i class="bi bi-check2"></i><span><strong>Sostener la ejecución</strong> y destrabar cuellos de botella antes de que impacten en la agenda.</span></li>
-              <li><i class="bi bi-check2"></i><span><strong>Mejorar coordinación interna</strong> con responsabilidades claras y trazabilidad de decisiones.</span></li>
-            </ul>
-            <p class="mb-4 about-cta">Coordinemos una reunión inicial.</p>
-          </div>
-        </div>
-
-        <div class="about-highlight mt-4 text-center">
-          <p class="mb-0"><strong>Una organización eficiente planifica orientada a metas claras, coordina responsables y sostiene resultados verificables.</strong> <a href="{{ url_for('contacto') }}">Contactanos</a>.</p>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Cómo trabajamos Section -->
-    <section id="como-trabajamos" class="services section section-soft-title work-steps">
-
+    <section id="kpis" class="section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>De prioridades a resultados</h2>
-        <p>Metas y foco</p>
+        <h2>KPI de referencia</h2>
+        <p>Estado de datos</p>
       </div>
-
       <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-              <div class="service-item position-relative text-start" tabindex="0">
-                <div class="icon">
-                  <i class="bi bi-clipboard-data"></i>
-                </div>
-                <span class="step-badge">01</span>
-                <h3>Metas y foco</h3>
-                <p>Definimos metas y prioridades concretas a partir de la agenda real de la institución. Identificamos puntos críticos y potencialidades, qué está trabado, qué depende de qué y dónde están las decisiones clave. Esto deja un foco común para alinear equipos y ordenar la ejecución.</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-              <div class="service-item position-relative text-start" tabindex="0">
-                <div class="icon">
-                  <i class="bi bi-layout-text-window-reverse"></i>
-                </div>
-                <span class="step-badge">02</span>
-                <h3>Datos ordenados</h3>
-                <p>Reunimos la información que ya existe (planillas, sistemas y reportes) y la ordenamos con criterios comunes. Definimos qué se mide, cómo se registra y cada cuánto se actualiza, para leer avances con consistencia entre áreas.</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-              <div class="service-item position-relative text-start" tabindex="0">
-                <div class="icon">
-                  <i class="bi bi-bullseye"></i>
-                </div>
-                <span class="step-badge">03</span>
-                <h3>Plan 90 días</h3>
-                <p>Traducimos metas y prioridades en un plan ejecutable para el primer mes, segundo y tercero. Convertimos objetivos en acciones concretas con responsables, plazos y puntos de control verificables, facilitando coordinación y avance real.</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-              <div class="service-item position-relative text-start" tabindex="0">
-                <div class="icon">
-                  <i class="bi bi-arrow-repeat"></i>
-                </div>
-                <span class="step-badge">04</span>
-                <h3>Ritmo y control</h3>
-                <p>Instalamos una rutina de revisión que sostiene el avance y permite corregir a tiempo. Consolidamos estado de prioridades, alertas tempranas y decisiones tomadas, con reportes periódicos claros y respaldo documental.</p>
-              </div>
-            </div>
-        </div>
-        <p class="mt-4 mb-0 text-center">Datos ordenados y analizados habilitan decisiones operables: foco, control de avance y corrección temprana de desvíos.</p>
-      </div>
-
-    </section><!-- /Cómo trabajamos Section -->
-
-    <!-- Metodología Section -->
-    <section id="metodologia" class="features section section-soft-title">
-
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>Metodología</h2>
-          <p>Aplicamos una metodología replicable orientada a resultados que estandariza el ciclo de gestión sin burocratizarlo.</p>
-        </div>
-
         <div class="row gy-4">
-          <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img src="{{ url_for('static', filename='img/features-bg.jpg') }}" alt=""></div>
+          <div class="col-lg-3 col-md-6"><div class="kpi-card" data-aos="zoom-in"><h3>Menciones hoy</h3><p>En construcción</p></div></div>
+          <div class="col-lg-3 col-md-6"><div class="kpi-card" data-aos="zoom-in" data-aos-delay="100"><h3>Menciones 7 días</h3><p>En construcción</p></div></div>
+          <div class="col-lg-3 col-md-6"><div class="kpi-card" data-aos="zoom-in" data-aos-delay="200"><h3>Fuentes únicas</h3><p>En construcción</p></div></div>
+          <div class="col-lg-3 col-md-6"><div class="kpi-card" data-aos="zoom-in" data-aos-delay="300"><h3>Tema dominante</h3><p>En construcción</p></div></div>
+        </div>
+        <p class="text-center small mt-4">Se alimentará automáticamente desde fuentes públicas y/o conectores habilitados.</p>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Cómo funciona</h2>
+        <p>Pipeline operativo</p>
+      </div>
+      <div class="container">
+        <div class="row gy-3">
+          <div class="col-md-6 col-lg-4"><div class="pipeline-step"><span>1</span> Configuración de keywords/temas</div></div>
+          <div class="col-md-6 col-lg-4"><div class="pipeline-step"><span>2</span> Ingesta: Alerts/RSS/APIs (según disponibilidad)</div></div>
+          <div class="col-md-6 col-lg-4"><div class="pipeline-step"><span>3</span> Normalización y deduplicación</div></div>
+          <div class="col-md-6 col-lg-6"><div class="pipeline-step"><span>4</span> Métricas de tendencia y picos</div></div>
+          <div class="col-md-6 col-lg-6"><div class="pipeline-step"><span>5</span> Dashboard + reportes</div></div>
+        </div>
+        <p class="small mt-4"><strong>Aclaración legal/TOS:</strong> sin scraping indiscriminado; uso de fuentes permitidas.</p>
+      </div>
+    </section>
+
+    <section id="dashboard" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Dashboard</h2>
+        <p>En construcción</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="dashboard-placeholder text-center p-5">
+          <h3>Dashboard en construcción</h3>
+          <p>Aquí se integrará Looker Studio con métricas y series temporales.</p>
+          <a href="{{ url_for('contacto') }}" class="btn btn-warning text-dark">Notificarme cuando esté listo</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="metricas" class="section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Qué medimos</h2>
+        <p>Métricas objetivo</p>
+      </div>
+      <div class="container">
+        <ul class="metrics-list">
+          <li>Volumen diario / semanal</li>
+          <li>Share of Voice (comparación entre temas)</li>
+          <li>Picos anómalos</li>
+          <li>Decaimiento (half-life) / persistencia</li>
+          <li>Cambios de régimen (próximamente)</li>
+          <li>Temas y asociaciones</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="planes" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Planes</h2>
+        <p>Packs de servicio</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4"><div class="plan-card"><h3>Base — Termómetro</h3><span class="status-chip status-live">Disponible en MVP</span><ul><li>Monitoreo inicial web/medios</li><li>Tendencias básicas</li><li>Reporte de seguimiento</li></ul></div></div>
+          <div class="col-lg-4"><div class="plan-card"><h3>Plus — Narrativa</h3><span class="status-chip status-soon">En preparación</span><ul><li>Temas y asociaciones</li><li>Análisis comparativo por tema</li><li>Mejoras de taxonomía</li></ul></div></div>
+          <div class="col-lg-4"><div class="plan-card"><h3>Pro — Alertas + Reportes</h3><span class="status-chip status-soon">Próximamente</span><ul><li>Alertas de picos/rupturas</li><li>Reportes ejecutivos</li><li>Escalabilidad de fuentes</li></ul></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodologia" class="section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Metodología</h2>
+        <p>Transparencia del enfoque</p>
+      </div>
+      <div class="container">
+        <div class="row gy-3">
+          <div class="col-lg-6"><div class="method-card"><h4>Qué es una mención (proxy)</h4><p>Una mención es una aparición detectada en fuentes habilitadas. Es un proxy operativo para estimar interés y narrativa.</p></div></div>
+          <div class="col-lg-6"><div class="method-card"><h4>Cobertura y limitaciones</h4><p>No representa todo internet ni un conteo exacto de búsquedas. El alcance depende de fuentes y conectores disponibles.</p></div></div>
+          <div class="col-lg-6"><div class="method-card"><h4>Respeto de términos y fuentes oficiales</h4><p>Solo se trabaja con fuentes permitidas, APIs oficiales y canales compatibles con términos de uso.</p></div></div>
+          <div class="col-lg-6"><div class="method-card"><h4>Transparencia y auditoría</h4><p>El proceso de captura y transformación se documenta para revisión metodológica y mejora continua.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Roadmap</h2>
+        <p>MVP y versión robusta</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
           <div class="col-lg-6">
-
-            <div class="features-item d-flex ps-0 ps-lg-3 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-graph-up flex-shrink-0"></i>
-              <div>
-                <h4>Datos con propósito</h4>
-                <p>No recopilamos información “por si acaso”. Definimos qué preguntas de gestión se necesitan responder y seleccionamos solo los datos que sirven para decidir y ejecutar.</p>
-              </div>
-            </div><!-- End Features Item-->
-
-            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-check2-circle flex-shrink-0"></i>
-              <div>
-                <h4>Planes operables, no documentos</h4>
-                <p>La planificación se traduce en acciones, responsables y plazos. Los hitos permiten verificar avance real sin depender de percepciones.</p>
-              </div>
-            </div><!-- End Features Item-->
-
-            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-calendar-check flex-shrink-0"></i>
-              <div>
-                <h4>Ritmo de seguimiento</h4>
-                <p>La mejora no depende de un tablero “lindo”, sino de rutinas simples: brief semanal y reporte mensual. Eso permite detectar desvíos temprano, corregir y sostener resultados comparables en el tiempo.</p>
-              </div>
-            </div><!-- End Features Item-->
-
-            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-arrow-right-circle flex-shrink-0"></i>
-              <div>
-                <h4>Ciclo de trabajo</h4>
-                <p>Definir prioridades → ordenar información → plan 30–60–90 → seguimiento → ajuste → reporte.</p>
-              </div>
-            </div><!-- End Features Item-->
-
+            <div class="roadmap-card">
+              <h4>MVP (1–2 semanas)</h4>
+              <ul>
+                <li><i class="bi bi-check2-circle"></i> Alerts + RSS</li>
+                <li><i class="bi bi-check2-circle"></i> Tablero inicial</li>
+                <li><i class="bi bi-check2-circle"></i> Reporte semanal</li>
+              </ul>
+            </div>
           </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Features Section -->
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section dark-background">
-
-      <img src="{{ url_for('static', filename='img/cta-bg.jpg') }}" alt="">
-
-      <div class="container">
-        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-xl-10">
-            <div class="text-center">
-              <h3>Presentación ejecutiva</h3>
-              <p>Una presentación de Síntesis 360 permite visualizar el mapa de prioridades, el plan 30–60–90 y los formatos de brief semanal y reporte mensual, en un estándar institucional listo para implementar.</p>
-              <a class="cta-btn" href="{{ url_for('contacto') }}">Solicitar demo</a>
+          <div class="col-lg-6">
+            <div class="roadmap-card">
+              <h4>Versión robusta</h4>
+              <ul>
+                <li><i class="bi bi-check2-circle"></i> Proveedores/APIs pagas</li>
+                <li><i class="bi bi-check2-circle"></i> NLP más avanzado</li>
+                <li><i class="bi bi-check2-circle"></i> Alertas de crisis</li>
+                <li><i class="bi bi-check2-circle"></i> BigQuery y escalabilidad</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-    </section><!-- /Call To Action Section -->
-
-    <!-- Áreas Section -->
-    <section id="areas" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Plan de aplicación</h2>
-        <p>Aplicamos el enfoque en distintos ámbitos de gestión institucional con criterios comunes de prioridades claras y seguimiento verificable.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-diagram-3"></i>
-              </div>
-              <h3>Gestión institucional y coordinación de áreas</h3>
-              <p>Orden de prioridades, coordinación entre equipos y trazabilidad de decisiones para sostener ejecución compartida.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-speedometer2"></i>
-              </div>
-              <h3>Servicios y operaciones</h3>
-              <p>Tiempos de respuesta, backlog y productividad con indicadores operativos y rutinas de seguimiento.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-kanban"></i>
-              </div>
-              <h3>Obras y proyectos</h3>
-              <p>Avance, hitos críticos y dependencias con evidencia de ejecución y alertas tempranas.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-people"></i>
-              </div>
-              <h3>Programas y políticas</h3>
-              <p>Cobertura, focalización y ejecución con resultados verificables y decisiones a tiempo.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-clipboard-check"></i>
-              </div>
-              <h3>Administración y procesos internos</h3>
-              <p>Rutinas de reporte, consistencia de información y eficiencia operativa sostenida.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-megaphone"></i>
-              </div>
-              <h3>Comunicación institucional y rendición de cuentas</h3>
-              <p>Resultados documentados y verificables para informar avances con claridad.</p>
-            </div>
-          </div>
-        </div>
-
+    <section class="section cta dark-background">
+      <img src="{{ url_for('static', filename='img/cta-bg.jpg') }}" alt="CTA">
+      <div class="container text-center" data-aos="zoom-in">
+        <h3>¿Querés monitorear un tema? Hablemos.</h3>
+        <a class="cta-btn" href="{{ url_for('contacto') }}">Ir a contacto</a>
       </div>
-
-    </section><!-- /Áreas Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section dark-background">
-
-      <img src="{{ url_for('static', filename='img/testimonials-bg.jpg') }}" class="testimonials-bg" alt="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-title text-center" data-aos="fade-up">
-          <h2>Mejoras por tipo de organización</h2>
-          <p>Resultados típicos observables con el enfoque de Síntesis 360.</p>
-        </div>
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <h3>Municipios</h3>
-                <p>Mejoramos la coordinación entre áreas y el seguimiento de prioridades con rutinas simples y reportes comparables.</p>
-                <p class="testimonial-cite"><em>Cuando las prioridades están claras y se revisan con frecuencia, la ejecución mejora.</em></p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <h3>Ministerios y secretarías</h3>
-                <p>Mejoramos el control de avance de programas y proyectos críticos con puntos de control verificables y lectura periódica.</p>
-                <p class="testimonial-cite"><em>La visibilidad del avance reduce incertidumbre y acelera decisiones.</em></p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <h3>Universidades e instituciones educativas</h3>
-                <p>Mejoramos la ejecución de iniciativas transversales alineando responsables, plazos y seguimiento entre áreas.</p>
-                <p class="testimonial-cite"><em>Un esquema común de seguimiento evita dispersión y superposición.</em></p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <h3>Hospitales y redes de salud</h3>
-                <p>Mejoramos la visibilidad de demanda, capacidad y continuidad operativa con seguimiento claro y alertas tempranas.</p>
-                <p class="testimonial-cite"><em>Detectar desvíos a tiempo permite corregir antes de que impacten en la atención.</em></p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <h3>Cooperativas de servicios</h3>
-                <p>Mejoramos la planificación operativa y el seguimiento de incidencias con rutinas simples y control de avance.</p>
-                <p class="testimonial-cite"><em>La claridad operativa se construye con rutinas, no con documentos aislados.</em></p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <h3>Organizaciones sociales y territoriales</h3>
-                <p>Mejoramos la focalización y el seguimiento de intervenciones con registro consistente y prioridades claras.</p>
-                <p class="testimonial-cite"><em>Registrar mejor permite decidir mejor y demostrar mejor.</em></p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <h3>Entes y empresas públicas</h3>
-                <p>Mejoramos tiempos de respuesta y desempeño operativo ordenando indicadores clave y responsables de actualización.</p>
-                <p class="testimonial-cite"><em>Medir lo importante y sostener el reporte cambia el desempeño.</em></p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <h3>Agencias de desarrollo y entes mixtos</h3>
-                <p>Mejoramos la gestión de cartera de proyectos y la coordinación con actores con planes operables y revisión periódica.</p>
-                <p class="testimonial-cite"><em>Un plan corto, revisado con disciplina, sostiene resultados.</em></p>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
+    </section>
   </main>
 
   <footer id="footer" class="footer dark-background">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-4 col-md-6 footer-about">
-            <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
-              <span class="sitename">Síntesis 360</span>
-            </a>
-            <div class="footer-contact pt-3">
-              <p>Inteligencia de gestión basada en evidencia.</p>
-              <p class="mt-3"><strong>Contacto:</strong> <span>contacto@sintesis360.com</span></p>
-            </div>
-            <div class="social-links d-flex mt-4">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Links</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="{{ url_for('home') }}#about">Nuestro trabajo</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="{{ url_for('servicios') }}">Servicios</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="{{ url_for('equipo') }}">Equipo</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="{{ url_for('contacto') }}">Contacto</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-12 footer-newsletter">
-            <h4>Novedades</h4>
-            <p>Recibí actualizaciones sobre metodologías de gestión y casos de uso institucional.</p>
-            <form action="{{ url_for('static', filename='forms/newsletter.php') }}" method="post" class="php-email-form">
-              <div class="newsletter-form"><input type="email" name="email" placeholder="tuemail@organizacion.com"><input type="submit" value="Suscribirme"></div>
-              <div class="loading">Enviando...</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Tu suscripción fue enviada. ¡Gracias!</div>
-            </form>
-          </div>
-
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-6 col-md-12 footer-about">
+          <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+            <span class="sitename">Observatorio CO</span>
+          </a>
+          <p>Demo / metodología para monitoreo de clima de opinión. Plataforma en construcción.</p>
+        </div>
+        <div class="col-lg-3 col-6 footer-links">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="{{ url_for('home') }}">Inicio</a></li>
+            <li><a href="{{ url_for('home') }}#planes">Planes</a></li>
+            <li><a href="{{ url_for('home') }}#metodologia">Metodología</a></li>
+            <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+          </ul>
         </div>
       </div>
     </div>
-
-    <div class="copyright">
-      <div class="container text-center">
-        <p>© Síntesis 360. Inteligencia de gestión basada en evidencia.</p>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-      </div>
+    <div class="container copyright text-center mt-4">
+      <p><span>Observatorio CO — MVP en construcción.</span></p>
     </div>
-
   </footer>
 
-  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
   <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
@@ -536,11 +237,7 @@
   <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/purecounter/purecounter_vanilla.js') }}"></script>
-
-  <!-- Main JS File -->
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
 </body>
 
 </html>
