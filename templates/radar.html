@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% set nav_active = 'radar' %}
+{% block title %}Síntesis 360 | Radar Público (Demo){% endblock %}
+
+{% block content %}
+<section class="breadcrumbs section">
+  <div class="container">
+    <h2>Radar Público (Demo)</h2>
+    <p>Monitoreo semanal de agenda y clima territorial.</p>
+  </div>
+</section>
+
+<section class="inner-page section light-background">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4"><div class="plan-card h-100"><h4>IIA</h4><p>Índice de Intensidad de Agenda: mide cuánto sube o baja cada tema.</p></div></div>
+      <div class="col-lg-4"><div class="plan-card h-100"><h4>ICC</h4><p>Índice de Conflictividad Comunicacional: estima el peso de marcos de conflicto.</p></div></div>
+      <div class="col-lg-4"><div class="plan-card h-100"><h4>IAT</h4><p>Índice de Asociación Tema↔Marco: relaciona temas con marcos narrativos.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="inner-page section">
+  <div class="container">
+    <h3>Dashboard interactivo (en construcción)</h3>
+    <div class="construction-banner">Placeholder embed: Dashboard interactivo (en construcción)</div>
+  </div>
+</section>
+
+<section class="inner-page section light-background">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-6">
+        <div class="method-card h-100">
+          <h4>Hallazgos de la semana</h4>
+          <ul>
+            <li>Suba demo de intensidad en temas de gestión local.</li>
+            <li>Mayor presencia demo de marcos de conflicto en tema emergente.</li>
+            <li>Estabilización demo en narrativas de servicios públicos.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="method-card h-100">
+          <h4>Alertas tempranas</h4>
+          <ul>
+            <li>Riesgo demo de escalada en conversación digital sectorial.</li>
+            <li>Cambio demo de marco narrativo hacia tono crítico.</li>
+            <li>Oportunidad demo para agenda proactiva de gestión.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="inner-page section">
+  <div class="container">
+    <h4>Archivo</h4>
+    <ul>
+      <li>Semana 01 demo</li>
+      <li>Semana 02 demo</li>
+    </ul>
+    <a class="btn btn-warning text-dark" href="{{ url_for('contacto') }}">Solicitar monitoreo privado</a>
+  </div>
+</section>
+{% endblock %}

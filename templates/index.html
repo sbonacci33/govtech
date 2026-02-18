@@ -1,327 +1,70 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "base.html" %}
+{% set nav_active = 'home' %}
+{% block title %}Síntesis 360 | Radar Público de Agenda y Clima Territorial{% endblock %}
+{% block body_class %}index-page{% endblock %}
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Observatorio de Clima de Opinión</title>
-  <meta name="description" content="Observatorio de Clima de Opinión: social listening y monitoreo de interés público.">
-  <meta name="keywords" content="observatorio, clima de opinión, social listening, monitoreo">
-
-  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
-  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-
-  <link href="{{ url_for('static', filename='css/main.css', v='2026-02-18') }}" rel="stylesheet">
-</head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0">
-        <span class="logo-mark">Síntesis 360</span>
-        <span class="logo-dot" aria-hidden="true">•</span>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="{{ url_for('home') }}" class="active">Inicio</a></li>
-          <li><a href="{{ url_for('home') }}#como-funciona">Cómo funciona</a></li>
-          <li><a href="{{ url_for('home') }}#planes">Planes</a></li>
-          <li><a href="{{ url_for('home') }}#metodologia">Metodología</a></li>
-          <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-    </div>
-  </header>
-
-  <main class="main">
-    <section id="inicio" class="hero section dark-background">
-      <img src="{{ url_for('static', filename='img/hero-bg.jpg') }}" alt="Fondo Observatorio" data-aos="fade-in">
-      <div class="container">
-        <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-xl-9 col-lg-10">
-            <h1>Observatorio de Clima de Opinión</h1>
-            <p class="hero-lead">Monitoreo de interés público y narrativa: menciones, temas, asociaciones y picos.</p>
-            <p class="hero-claim mt-4">Construimos un termómetro operativo para seguir cómo se instala, evoluciona y decae una conversación pública. Del dato a la decisión: seguimiento diario, detección de anomalías e informes ejecutivos.</p>
-            <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
-              <a class="btn btn-warning text-dark" href="{{ url_for('contacto') }}">Solicitar demo</a>
-              <a class="btn btn-outline-light" href="#metodologia">Ver metodología</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="kpis" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Panel de referencia</h2>
-        <p>Elegí una variable para simular el tablero. Próximamente, estos indicadores se alimentarán automáticamente.</p>
-      </div>
-      <div class="container">
-        <div class="kpi-selector-wrap mb-4" data-aos="fade-up" data-aos-delay="100">
-          <label for="kpiVariable" class="form-label">Variable de seguimiento</label>
-          <select id="kpiVariable" class="form-select">
-            <option value="Miguel Siciliano">Miguel Siciliano</option>
-            <option value="Martín Llaryora">Martín Llaryora</option>
-            <option value="Seguridad">Seguridad</option>
-            <option value="Dólar">Dólar</option>
-            <option value="Inflación">Inflación</option>
-            <option value="Empleo">Empleo</option>
-            <option value="Obra pública">Obra pública</option>
-            <option value="Salud">Salud</option>
-            <option value="Educación">Educación</option>
-            <option value="Transporte">Transporte</option>
-          </select>
-        </div>
-        <div class="row gy-4">
-          <div class="col-lg-3 col-md-6">
-            <div class="kpi-card" data-aos="zoom-in">
-              <h3>Menciones (24h)</h3>
-              <p id="kpi24h-value" class="kpi-value">--</p>
-              <small id="kpi24h-copy" class="kpi-copy">Simulación activa para variable seleccionada.</small>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="kpi-card" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Menciones (7 días)</h3>
-              <p id="kpi7d-value" class="kpi-value">--</p>
-              <small id="kpi7d-copy" class="kpi-copy">Evolución acumulada en modo demostración.</small>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="kpi-card" data-aos="zoom-in" data-aos-delay="200">
-              <h3>Fuentes únicas (7 días)</h3>
-              <p id="kpiSources-value" class="kpi-value">--</p>
-              <small id="kpiSources-copy" class="kpi-copy">Cobertura estimada por origen detectado.</small>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="kpi-card" data-aos="zoom-in" data-aos-delay="300">
-              <h3>Señal de tendencia</h3>
-              <p id="kpiTrend-value" class="kpi-value">--</p>
-              <small id="kpiTrend-copy" class="kpi-copy">Chip demostrativo de dirección (↑ → ↓).</small>
-            </div>
-          </div>
-        </div>
-        <p class="text-center small mt-4">Modo demo: valores simulados para visualizar comportamiento del tablero.</p>
-      </div>
-    </section>
-
-    <section id="como-funciona" class="section light-background">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Cómo funciona</h2>
-        <p>Pipeline reproducible para capturar, ordenar y convertir señales en decisiones accionables.</p>
-      </div>
-      <div class="container">
-        <div class="row gy-3">
-          <div class="col-md-6 col-lg-4"><div class="pipeline-step"><span>1</span> Definición de variables, taxonomías y reglas de consulta.</div></div>
-          <div class="col-md-6 col-lg-4"><div class="pipeline-step"><span>2</span> Ingesta automatizada desde fuentes habilitadas y conectores.</div></div>
-          <div class="col-md-6 col-lg-4"><div class="pipeline-step"><span>3</span> Limpieza, deduplicación y estandarización de menciones.</div></div>
-          <div class="col-md-6 col-lg-6"><div class="pipeline-step"><span>4</span> Cálculo de indicadores: volumen, velocidad, picos y persistencia.</div></div>
-          <div class="col-md-6 col-lg-6"><div class="pipeline-step"><span>5</span> Entrega en tablero, alertas y reportes ejecutivos comparables.</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="dashboard" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Dashboard</h2>
-        <p>Dashboard en construcción</p>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="dashboard-placeholder text-center p-5">
-          <h3>Dashboard en construcción</h3>
-          <p>Próximamente: vista ejecutiva, evolución temporal y comparativo de variables priorizadas.</p>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
-            <span class="status-chip status-soon">Tendencias temporales — Próximamente</span>
-            <span class="status-chip status-soon">Mapa de temas — Próximamente</span>
-            <span class="status-chip status-soon">Alertas de anomalía — Próximamente</span>
-          </div>
-          <a href="{{ url_for('contacto') }}" class="btn btn-warning text-dark">Notificarme cuando esté listo</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="metricas" class="section light-background">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Qué medimos</h2>
-        <p>Métricas núcleo del observatorio</p>
-      </div>
-      <div class="container">
-        <ul class="metrics-list">
-          <li>Volumen diario / semanal</li>
-          <li>Share of Voice (comparación entre temas)</li>
-          <li>Picos anómalos</li>
-          <li>Velocidad de crecimiento de conversación</li>
-          <li>Decaimiento (half-life) / persistencia</li>
-          <li>Cambios de régimen</li>
-          <li>Temas y asociaciones</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="planes" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Planes</h2>
-        <p>Esquema modular de adopción</p>
-      </div>
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-4"><div class="plan-card"><h3>Base — Termómetro</h3><span class="status-chip status-live">Disponible</span><ul><li>Monitoreo inicial web/medios</li><li>Tendencias básicas</li><li>Reporte de seguimiento</li></ul></div></div>
-          <div class="col-lg-4"><div class="plan-card"><h3>Plus — Narrativa</h3><span class="status-chip status-soon">En preparación</span><ul><li>Temas y asociaciones</li><li>Análisis comparativo por tema</li><li>Mejoras de taxonomía</li></ul></div></div>
-          <div class="col-lg-4"><div class="plan-card"><h3>Pro — Alertas + Reportes</h3><span class="status-chip status-soon">Próximamente</span><ul><li>Alertas de picos/rupturas</li><li>Reportes ejecutivos</li><li>Escalabilidad de fuentes</li></ul></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="metodologia" class="section light-background">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Metodología</h2>
-        <p>Marco técnico y criterios de consistencia analítica</p>
-      </div>
-      <div class="container">
-        <div class="row gy-3">
-          <div class="col-lg-6"><div class="method-card"><h4>Unidad de análisis</h4><p>Una mención representa una ocurrencia detectada en fuentes habilitadas y trazables, consolidada bajo reglas de normalización comunes.</p></div></div>
-          <div class="col-lg-6"><div class="method-card"><h4>Cobertura de fuentes</h4><p>El universo de observación evoluciona por etapas: se priorizan fuentes con acceso estable, calidad documental y cumplimiento normativo.</p></div></div>
-          <div class="col-lg-6"><div class="method-card"><h4>Calidad y consistencia</h4><p>Aplicamos deduplicación, validaciones de estructura y controles de coherencia para sostener series comparables en el tiempo.</p></div></div>
-          <div class="col-lg-6"><div class="method-card"><h4>Gobernanza metodológica</h4><p>Las decisiones de clasificación y cálculo se documentan para auditoría interna, iteración técnica y comunicación ejecutiva transparente.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="roadmap" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Roadmap</h2>
-        <p>MVP y versión robusta</p>
-      </div>
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6">
-            <div class="roadmap-card">
-              <h4>MVP (1–2 semanas)</h4>
-              <ul>
-                <li><i class="bi bi-check2-circle"></i> Alerts + RSS</li>
-                <li><i class="bi bi-check2-circle"></i> Tablero inicial</li>
-                <li><i class="bi bi-check2-circle"></i> Reporte semanal</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="roadmap-card">
-              <h4>Versión robusta</h4>
-              <ul>
-                <li><i class="bi bi-check2-circle"></i> Proveedores/APIs pagas</li>
-                <li><i class="bi bi-check2-circle"></i> NLP más avanzado</li>
-                <li><i class="bi bi-check2-circle"></i> Alertas de crisis</li>
-                <li><i class="bi bi-check2-circle"></i> BigQuery y escalabilidad</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cta dark-background">
-      <img src="{{ url_for('static', filename='img/cta-bg.jpg') }}" alt="CTA">
-      <div class="container text-center" data-aos="zoom-in">
-        <h3>¿Querés monitorear un tema? Hablemos.</h3>
-        <a class="cta-btn" href="{{ url_for('contacto') }}">Ir a contacto</a>
-      </div>
-    </section>
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-6 col-md-12 footer-about">
-          <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
-            <span class="sitename">Síntesis 360<span class="logo-dot" aria-hidden="true">•</span></span>
-          </a>
-          <p>Observatorio de Clima de Opinión: inteligencia narrativa para seguimiento estratégico y decisiones basadas en evidencia.</p>
-        </div>
-        <div class="col-lg-3 col-6 footer-links">
-          <h4>Links</h4>
-          <ul>
-            <li><a href="{{ url_for('home') }}">Inicio</a></li>
-            <li><a href="{{ url_for('home') }}#planes">Planes</a></li>
-            <li><a href="{{ url_for('home') }}#metodologia">Metodología</a></li>
-            <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
-          </ul>
+{% block content %}
+<section id="hero" class="hero d-flex align-items-center dark-background">
+  <img src="{{ url_for('static', filename='img/hero-bg.jpg') }}" alt="Fondo radar público" data-aos="fade-in">
+  <div class="container">
+    <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-xl-9 col-lg-10">
+        <h1>SÍNTESIS 360 – Radar Público de Agenda y Clima Territorial</h1>
+        <p class="hero-claim mt-4">Inteligencia estratégica basada en datos para política y gestión.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+          <a class="btn btn-warning text-dark" href="{{ url_for('radar') }}">Ver Radar (demo)</a>
+          <a class="btn btn-outline-light" href="{{ url_for('contacto') }}">Solicitar monitoreo privado</a>
         </div>
       </div>
     </div>
-    <div class="container copyright text-center mt-4">
-      <p><span>Síntesis 360.</span></p>
+  </div>
+</section>
+
+<section class="section pt-4 pb-0">
+  <div class="container" data-aos="fade-up">
+    <div class="construction-banner"><strong>MVP en construcción: algunas visualizaciones pueden ser demo o datos simulados</strong></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Unidad de inteligencia estratégica aplicada a agenda y clima público</h2>
+  </div>
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <p>Síntesis 360 desarrolla un sistema para monitorear la agenda pública, medir intensidad temática, detectar marcos narrativos y producir alertas tempranas.</p>
+  </div>
+</section>
+
+<section class="section light-background">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Proceso en 4 pasos</h2>
+    <p>Así convertimos ruido informativo en señales accionables para equipos públicos y campañas.</p>
+  </div>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="100"><div class="plan-card h-100"><h4>1) Cobertura y fuentes</h4><p>Relevamos medios digitales, portales territoriales y conversación pública para construir una base semanal comparable.</p></div></div>
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="150"><div class="plan-card h-100"><h4>2) Clasificación temática</h4><p>Etiquetamos cada mención con una taxonomía estable (seguridad, economía, servicios, educación, salud y más).</p></div></div>
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="200"><div class="plan-card h-100"><h4>3) Marcos narrativos</h4><p>Detectamos el enfoque dominante de cada tema: gestión, conflicto, crisis, oportunidad o demanda ciudadana.</p></div></div>
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="250"><div class="plan-card h-100"><h4>4) Indicadores y alertas</h4><p>Entregamos índices sintéticos, tendencias y alertas tempranas para mejorar decisiones de agenda y comunicación.</p></div></div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <div id="preloader"></div>
-
-  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-  <script>
-    (function () {
-      const selector = document.getElementById('kpiVariable');
-      const dataByVariable = {
-        'Miguel Siciliano': { mentions24h: '1.240', mentions7d: '8.910', sources: '124', trend: '↑ Alza moderada' },
-        'Martín Llaryora': { mentions24h: '1.680', mentions7d: '10.530', sources: '176', trend: '→ Estable' },
-        'Seguridad': { mentions24h: '2.140', mentions7d: '14.880', sources: '232', trend: '↑ Alza fuerte' },
-        'Dólar': { mentions24h: '1.920', mentions7d: '13.120', sources: '198', trend: '↑ Volátil' },
-        'Inflación': { mentions24h: '1.560', mentions7d: '11.740', sources: '165', trend: '→ Estable alta' },
-        'Empleo': { mentions24h: '930', mentions7d: '6.210', sources: '108', trend: '↓ Desacelerando' },
-        'Obra pública': { mentions24h: '870', mentions7d: '5.940', sources: '96', trend: '→ Estable' },
-        'Salud': { mentions24h: '1.110', mentions7d: '7.450', sources: '131', trend: '↑ Recuperando interés' },
-        'Educación': { mentions24h: '980', mentions7d: '7.020', sources: '117', trend: '→ Estable' },
-        'Transporte': { mentions24h: '1.030', mentions7d: '6.780', sources: '122', trend: '↓ Baja gradual' }
-      };
-
-      const trendClass = (value) => {
-        if (value.startsWith('↑')) return 'trend-up';
-        if (value.startsWith('↓')) return 'trend-down';
-        return 'trend-neutral';
-      };
-
-      const renderKpis = () => {
-        const selected = selector.value;
-        const current = dataByVariable[selected];
-
-        document.getElementById('kpi24h-value').textContent = current.mentions24h;
-        document.getElementById('kpi7d-value').textContent = current.mentions7d;
-        document.getElementById('kpiSources-value').textContent = current.sources;
-
-        const trendNode = document.getElementById('kpiTrend-value');
-        trendNode.textContent = current.trend;
-        trendNode.className = `kpi-value trend-chip ${trendClass(current.trend)}`;
-
-        document.getElementById('kpi24h-copy').textContent = `Ventana de 24h simulada para ${selected}.`;
-        document.getElementById('kpi7d-copy').textContent = `Acumulado semanal estimado en modo demo para ${selected}.`;
-        document.getElementById('kpiSources-copy').textContent = `Cantidad de fuentes únicas detectadas (simulación): ${selected}.`;
-        document.getElementById('kpiTrend-copy').textContent = `Señal indicativa de dirección narrativa para ${selected}.`;
-      };
-
-      selector.addEventListener('change', renderKpis);
-      renderKpis();
-    })();
-  </script>
-</body>
-
-</html>
+<section class="section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Metodología</h2>
+    <p>Marco de análisis que permite comparar semanas, temas y narrativas sin perder contexto local.</p>
+  </div>
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="method-card">
+      <ul>
+        <li><strong>Frecuencia semanal:</strong> cierres periódicos para detectar subas, bajas y cambios bruscos.</li>
+        <li><strong>Unidad de análisis:</strong> menciones por tema y su distribución por territorio y tipo de fuente.</li>
+        <li><strong>Taxonomía temática estable:</strong> categorías fijas para comparar la evolución de largo plazo.</li>
+        <li><strong>Índices IIA, ICC e IAT:</strong> intensidad de agenda, conflictividad comunicacional y asociación tema-marco.</li>
+        <li><strong>Estado prototipo (MVP):</strong> resultados orientativos para validación funcional con clientes piloto.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
