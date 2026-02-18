@@ -1,145 +1,68 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "base.html" %}
+{% set nav_active = 'home' %}
+{% block title %}Síntesis 360 | Radar Público de Agenda y Clima Territorial{% endblock %}
+{% block body_class %}index-page{% endblock %}
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Radar Público de Agenda y Clima Territorial</title>
-  <meta name="description" content="Síntesis 360: Radar Público de Agenda y Clima Territorial.">
-  <meta name="keywords" content="govtech, inteligencia estratégica, agenda pública, monitoreo temático">
-
-  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
-  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-
-  <link href="{{ url_for('static', filename='css/main.css', v='2026-02-18') }}" rel="stylesheet">
-</head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0">
-        <span class="logo-mark">Síntesis 360</span>
-        <span class="logo-dot" aria-hidden="true">•</span>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="{{ url_for('home') }}" class="active">Nuestro trabajo</a></li>
-          <li><a href="{{ url_for('radar') }}">Radar</a></li>
-          <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
-          <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
-          <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+{% block content %}
+<section id="hero" class="d-flex align-items-center dark-background">
+  <img src="{{ url_for('static', filename='img/hero-bg.jpg') }}" alt="Fondo radar público" data-aos="fade-in">
+  <div class="container">
+    <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-xl-9 col-lg-10">
+        <h1>SÍNTESIS 360 – Radar Público de Agenda y Clima Territorial</h1>
+        <p class="hero-claim mt-4">Inteligencia estratégica basada en datos para política y gestión.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+          <a class="btn btn-warning text-dark" href="{{ url_for('radar') }}">Ver Radar (demo)</a>
+          <a class="btn btn-outline-light" href="{{ url_for('contacto') }}">Solicitar monitoreo privado</a>
+        </div>
+      </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main class="main">
-    <section id="inicio" class="hero section dark-background">
-      <img src="{{ url_for('static', filename='img/hero-bg.jpg') }}" alt="Fondo radar público" data-aos="fade-in">
-      <div class="container">
-        <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-xl-9 col-lg-10">
-            <h1>SÍNTESIS 360</h1>
-            <p class="hero-lead">Radar Público de Agenda y Clima Territorial</p>
-            <p class="hero-claim mt-4">Inteligencia estratégica basada en datos para política y gestión.<br>De la conversación pública a decisiones operables.</p>
-            <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
-              <a class="btn btn-warning text-dark" href="{{ url_for('radar') }}">Ver Radar (demo)</a>
-              <a class="btn btn-outline-light" href="{{ url_for('contacto') }}">Solicitar monitoreo privado</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="section pt-4 pb-0">
+  <div class="container" data-aos="fade-up">
+    <div class="construction-banner"><strong>MVP en construcción: algunas visualizaciones pueden ser demo o datos simulados</strong></div>
+  </div>
+</section>
 
-    <section class="section pt-4 pb-0">
-      <div class="container" data-aos="fade-up">
-        <div class="construction-banner">
-          <strong>MVP en construcción:</strong>
-          Este portal se encuentra en etapa de prototipo. Algunas visualizaciones y reportes pueden mostrarse con datos simulados hasta completar las integraciones técnicas.
-        </div>
-      </div>
-    </section>
+<section class="section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Unidad de inteligencia estratégica aplicada a agenda y clima público</h2>
+  </div>
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <p>Síntesis 360 desarrolla un sistema para monitorear la agenda pública, medir intensidad temática, detectar marcos narrativos y producir alertas tempranas.</p>
+  </div>
+</section>
 
-    <section class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Unidad de inteligencia estratégica aplicada a agenda y clima público</h2>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <p>Síntesis 360 desarrolla un sistema para monitorear la agenda pública, medir intensidad temática, detectar marcos narrativos y producir alertas tempranas que impactan en la gobernabilidad y la gestión.</p>
-        <p>El Radar Público funciona como piloto abierto (Córdoba) para mostrar metodología y resultados. En paralelo ofrecemos monitoreos privados con tableros, reportes ejecutivos y seguimiento específico por jurisdicción o sector.</p>
-      </div>
-    </section>
+<section class="section light-background">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Proceso en 4 pasos</h2>
+  </div>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="100"><div class="plan-card h-100"><h4>Cobertura y fuentes</h4></div></div>
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="150"><div class="plan-card h-100"><h4>Clasificación temática</h4></div></div>
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="200"><div class="plan-card h-100"><h4>Marcos narrativos</h4></div></div>
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="250"><div class="plan-card h-100"><h4>Indicadores y alertas</h4></div></div>
+    </div>
+  </div>
+</section>
 
-    <section id="como-funciona" class="section light-background">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Cómo funciona</h2>
-      </div>
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="plan-card h-100">
-              <h4>1. Cobertura y fuentes</h4>
-              <p>Recolectamos señales de medios digitales con criterios de cobertura y calidad. El objetivo es construir un insumo comparable semana a semana.</p>
-            </div>
-          </div>
-          <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="150">
-            <div class="plan-card h-100">
-              <h4>2. Clasificación temática</h4>
-              <p>Organizamos la conversación con una taxonomía estable de temas y subtemas para medir evolución y emergentes.</p>
-            </div>
-          </div>
-          <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
-            <div class="plan-card h-100">
-              <h4>3. Marcos narrativos</h4>
-              <p>Identificamos cómo se discuten los temas: gestión, conflicto, crisis, judicialización, entre otros.</p>
-            </div>
-          </div>
-          <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="250">
-            <div class="plan-card h-100">
-              <h4>4. Indicadores y alertas</h4>
-              <p>Generamos índices simples (intensidad, conflictividad y asociaciones) junto a una síntesis ejecutiva operativa.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="metodologia" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Metodología</h2>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-3">
-          <div class="col-md-6 col-lg-4"><div class="method-card h-100"><strong>Frecuencia:</strong> semanal.</div></div>
-          <div class="col-md-6 col-lg-4"><div class="method-card h-100"><strong>Unidad de análisis:</strong> menciones por tema (no nombres propios en el portal público).</div></div>
-          <div class="col-md-6 col-lg-4"><div class="method-card h-100"><strong>Taxonomía:</strong> temas + marcos narrativos.</div></div>
-          <div class="col-md-6 col-lg-6"><div class="method-card h-100"><strong>Índices:</strong> IIA, ICC, IAT.</div></div>
-          <div class="col-md-6 col-lg-6"><div class="method-card h-100"><strong>Estado:</strong> prototipo en evolución.</div></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Plataforma de inteligencia estratégica (demo/prototipo).</span></p></div>
-  </footer>
-
-  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-
-</html>
+<section class="section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Metodología</h2>
+  </div>
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="method-card">
+      <ul>
+        <li>Frecuencia semanal.</li>
+        <li>Unidad: menciones por tema.</li>
+        <li>Taxonomía temática estable.</li>
+        <li>Índices IIA, ICC e IAT.</li>
+        <li>Estado prototipo (MVP).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
