@@ -1991,3 +1991,96 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/* --------------------------------------------------------------
+# Observatorio CO (MVP en construcción)
+# Ajustes mínimos para placeholders, badges y bloques metodológicos.
+-------------------------------------------------------------- */
+.construction-badge {
+  background-color: color-mix(in srgb, var(--accent-color), #000 20%);
+  color: #111;
+  font-weight: 700;
+}
+
+.construction-banner {
+  background: color-mix(in srgb, var(--accent-color), #fff 70%);
+  border-left: 4px solid var(--accent-color);
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #222;
+}
+
+.kpi-card,
+.plan-card,
+.method-card,
+.dashboard-placeholder,
+.roadmap-card {
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 10px;
+  padding: 22px;
+  height: 100%;
+}
+
+.kpi-card p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.pipeline-step {
+  background: #fff;
+  border-radius: 8px;
+  padding: 14px;
+  border: 1px solid #e8e8e8;
+}
+
+.pipeline-step span {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-color);
+  color: #111;
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+.metrics-list {
+  columns: 1;
+  gap: 24px;
+}
+
+.metrics-list li {
+  margin-bottom: 8px;
+}
+
+.status-chip {
+  display: inline-block;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 5px 10px;
+  margin-bottom: 12px;
+  letter-spacing: 0.4px;
+}
+
+.status-live {
+  background: #e9f9ed;
+  color: #1c7f3a;
+}
+
+.status-soon {
+  background: #fff7e7;
+  color: #9e6a00;
+}
+
+@media (min-width: 992px) {
+  .metrics-list {
+    columns: 2;
+  }
+}
