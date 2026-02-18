@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Quiénes somos</title>
+  <title>Síntesis 360 | Equipo</title>
   <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
   <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -15,10 +15,10 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0"><span class="logo-mark">Síntesis 360</span><span class="logo-dot" aria-hidden="true">•</span></a>
       <nav id="navmenu" class="navmenu"><ul>
-        <li><a href="{{ url_for('home') }}">Inicio</a></li>
-        <li><a href="{{ url_for('home') }}#como-funciona">Cómo funciona</a></li>
-        <li><a href="{{ url_for('home') }}#planes">Planes</a></li>
-        <li><a href="{{ url_for('home') }}#metodologia">Metodología</a></li>
+        <li><a href="{{ url_for('home') }}">Nuestro trabajo</a></li>
+        <li><a href="{{ url_for('radar') }}">Radar</a></li>
+        <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+        <li><a href="{{ url_for('equipo') }}" class="active">Equipo</a></li>
         <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
       </ul><i class="mobile-nav-toggle d-xl-none bi bi-list"></i></nav>
     </div>
@@ -27,35 +27,25 @@
   <main class="main">
     <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='img/features-bg.jpg') }}');">
       <div class="container position-relative">
-        <h1>Quiénes somos</h1>
-        <p>Equipo en construcción con enfoque en datos, metodología y dashboards de decisión.</p>
+        <h1>Equipo</h1>
+        <p>Capacidades para diseñar y operar sistemas de inteligencia de agenda.</p>
       </div>
     </div>
 
     <section class="section">
       <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-4"><div class="method-card h-100"><h4>Equipo en construcción</h4><p>Estamos consolidando perfiles técnicos y de análisis para expandir el producto.</p></div></div>
-          <div class="col-lg-4"><div class="method-card h-100"><h4>Enfoque</h4><p>Datos, métricas, metodología reproducible y visualización clara para toma de decisiones.</p></div></div>
-          <div class="col-lg-4"><div class="method-card h-100"><h4>Principios</h4><p>Transparencia, replicabilidad y respeto por TOS y fuentes oficiales.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section light-background">
-      <div class="container section-title"><h2>Roles actuales (placeholders)</h2></div>
-      <div class="container">
-        <div class="row gy-3">
-          <div class="col-md-4"><div class="plan-card"><h5>Equipo de análisis</h5><p>Definición de temas y calidad de métricas.</p></div></div>
-          <div class="col-md-4"><div class="plan-card"><h5>Ingeniería de datos</h5><p>Conectores, deduplicación y pipelines.</p></div></div>
-          <div class="col-md-4"><div class="plan-card"><h5>Producto y UX</h5><p>Diseño del tablero y experiencia de uso.</p></div></div>
+          <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="100"><div class="method-card h-100"><h4>Cobertura e ingesta</h4><p>Diseño de fuentes y procesos de recolección para series comparables.</p></div></div>
+          <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="150"><div class="method-card h-100"><h4>Modelado y taxonomías</h4><p>Estructuración temática y normalización para análisis escalable.</p></div></div>
+          <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="200"><div class="method-card h-100"><h4>Indicadores y tableros</h4><p>Construcción de índices, visualizaciones y monitoreo operativo.</p></div></div>
+          <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="250"><div class="method-card h-100"><h4>Síntesis estratégica</h4><p>Traducción de métricas a reportes ejecutivos orientados a decisión.</p></div></div>
         </div>
       </div>
     </section>
   </main>
 
   <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Equipo en construcción.</span></p></div>
+    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Capacidades técnicas y estratégicas en evolución.</span></p></div>
   </footer>
 
   <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

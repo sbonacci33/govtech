@@ -12,6 +12,10 @@ def create_app() -> Flask:
     def home() -> str:
         return render_template("index.html")
 
+    @app.route("/radar")
+    def radar() -> str:
+        return render_template("radar.html")
+
     @app.route("/servicios")
     def servicios() -> str:
         return render_template("servicios.html")
