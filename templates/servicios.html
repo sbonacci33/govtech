@@ -1,96 +1,28 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Servicios</title>
-  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
-  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/main.css', v='2026-02-18') }}" rel="stylesheet">
-</head>
-<body class="starter-page-page">
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0"><span class="logo-mark">Síntesis 360</span><span class="logo-dot" aria-hidden="true">•</span></a>
-      <nav id="navmenu" class="navmenu"><ul>
-        <li><a href="{{ url_for('home') }}">Nuestro trabajo</a></li>
-        <li><a href="{{ url_for('radar') }}">Radar</a></li>
-        <li><a href="{{ url_for('servicios') }}" class="active">Servicios</a></li>
-        <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
-        <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
-      </ul><i class="mobile-nav-toggle d-xl-none bi bi-list"></i></nav>
+{% extends "base.html" %}
+{% set nav_active = 'servicios' %}
+{% block title %}Síntesis 360 | Servicios{% endblock %}
+
+{% block content %}
+<section class="breadcrumbs section">
+  <div class="container">
+    <h2>Servicios</h2>
+    <p>Productos de monitoreo para decidir con evidencia.</p>
+  </div>
+</section>
+
+<section class="inner-page section light-background">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4"><div class="plan-card h-100"><h3>1) Monitoreo de Agenda (Medios)</h3></div></div>
+      <div class="col-lg-4"><div class="plan-card h-100"><h3>2) Clima Narrativo (Agenda + Marcos)</h3></div></div>
+      <div class="col-lg-4"><div class="plan-card h-100"><h3>3) Monitoreo a medida (Privado / Premium)</h3></div></div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main class="main">
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='img/features-bg.jpg') }}');">
-      <div class="container position-relative">
-        <h1>Servicios</h1>
-        <p>Productos de monitoreo para decidir con evidencia.</p>
-      </div>
-    </div>
-
-    <section class="section">
-      <div class="container" data-aos="fade-up">
-        <p>El Radar Público muestra la metodología. Los siguientes servicios son privados y adaptables.</p>
-      </div>
-    </section>
-
-    <section class="section light-background">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="plan-card h-100">
-              <h3>Monitoreo de Agenda (Medios)</h3>
-              <ul>
-                <li>Seguimiento semanal por temas</li>
-                <li>Variación e identificación de emergentes</li>
-                <li>Dashboard base</li>
-                <li>Informe ejecutivo</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
-            <div class="plan-card h-100">
-              <h3>Clima Narrativo</h3>
-              <ul>
-                <li>Agenda + marcos narrativos</li>
-                <li>Índice de conflictividad</li>
-                <li>Alertas tempranas</li>
-                <li>Reporte estratégico</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="plan-card h-100">
-              <h3>Monitoreo a medida</h3>
-              <ul>
-                <li>Cobertura específica por jurisdicción o sector</li>
-                <li>Taxonomía adaptada</li>
-                <li>Tablero custom</li>
-                <li>Reporte mensual</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container" data-aos="fade-up">
-        <div class="construction-banner">Posibilidad de piloto de 30 días.</div>
-      </div>
-    </section>
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Servicios privados de monitoreo estratégico.</span></p></div>
-  </footer>
-
-  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-</html>
+<section class="inner-page section">
+  <div class="container">
+    <div class="construction-banner">Piloto 30 días</div>
+  </div>
+</section>
+{% endblock %}

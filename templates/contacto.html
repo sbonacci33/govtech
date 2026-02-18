@@ -1,95 +1,28 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Contacto</title>
-  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
-  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/main.css', v='2026-02-18') }}" rel="stylesheet">
-</head>
-<body class="contact-page">
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0"><span class="logo-mark">Síntesis 360</span><span class="logo-dot" aria-hidden="true">•</span></a>
-      <nav id="navmenu" class="navmenu"><ul>
-        <li><a href="{{ url_for('home') }}">Nuestro trabajo</a></li>
-        <li><a href="{{ url_for('radar') }}">Radar</a></li>
-        <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
-        <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
-        <li><a href="{{ url_for('contacto') }}" class="active">Contacto</a></li>
-      </ul><i class="mobile-nav-toggle d-xl-none bi bi-list"></i></nav>
+{% extends "base.html" %}
+{% set nav_active = 'contacto' %}
+{% block title %}Síntesis 360 | Contacto{% endblock %}
+
+{% block content %}
+<section class="breadcrumbs section">
+  <div class="container">
+    <h2>Contacto</h2>
+    <p>Coordinemos una demo del Radar o un diagnóstico inicial</p>
+  </div>
+</section>
+
+<section class="inner-page section">
+  <div class="container">
+    <div class="method-card">
+      <ul>
+        <li>Modalidad remoto/presencial.</li>
+        <li>Respuesta 48hs.</li>
+        <li>Piloto 30 días.</li>
+      </ul>
     </div>
-  </header>
+  </div>
+</section>
+{% endblock %}
 
-  <main class="main">
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='img/features-bg.jpg') }}');">
-      <div class="container position-relative">
-        <h1>Contacto</h1>
-        <p>Coordinemos una demo del Radar o un diagnóstico inicial.</p>
-      </div>
-    </div>
-
-    <section id="contact" class="contact section">
-      <div class="container" data-aos="fade-up">
-        <div class="row gy-4">
-          <div class="col-lg-5">
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="100">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div><h3>Modalidad</h3><p>Remota o presencial.</p></div>
-              </div>
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-clock flex-shrink-0"></i>
-                <div><h3>Tiempo de respuesta</h3><p>Respuesta en 48 horas.</p></div>
-              </div>
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-lightning-charge flex-shrink-0"></i>
-                <div><h3>Piloto inicial</h3><p>Posibilidad de piloto de 30 días.</p></div>
-              </div>
-              <div class="construction-banner mt-3">MVP en construcción: formulario demo mientras completamos integraciones.</div>
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <form class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-                <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Nombre" required></div>
-                <div class="col-md-6"><input type="email" class="form-control" name="email" placeholder="Email" required></div>
-                <div class="col-12"><input type="text" class="form-control" name="organization" placeholder="Organización" required></div>
-                <div class="col-12">
-                  <select class="form-control" name="interes" required>
-                    <option value="" selected disabled>Interés principal</option>
-                    <option value="radar">Demo de radar</option>
-                    <option value="agenda">Monitoreo de agenda</option>
-                    <option value="narrativo">Clima narrativo</option>
-                    <option value="medida">Monitoreo a medida</option>
-                  </select>
-                </div>
-                <div class="col-12"><textarea class="form-control" name="message" rows="6" placeholder="Mensaje (opcional)"></textarea></div>
-                <div class="col-12 text-center">
-                  <div class="loading">Cargando</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Formulario de demostración (UI). Pronto conectaremos envío real.</div>
-                  <button type="submit">Solicitar información</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Contacto para radar demo y monitoreos privados.</span></p></div>
-  </footer>
-
-  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-</html>
+{% block extra_js %}
+<script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+{% endblock %}
