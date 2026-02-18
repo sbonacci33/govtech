@@ -4,7 +4,7 @@
 {% block body_class %}index-page{% endblock %}
 
 {% block content %}
-<section id="hero" class="d-flex align-items-center dark-background">
+<section id="hero" class="hero d-flex align-items-center dark-background">
   <img src="{{ url_for('static', filename='img/hero-bg.jpg') }}" alt="Fondo radar público" data-aos="fade-in">
   <div class="container">
     <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
@@ -38,13 +38,14 @@
 <section class="section light-background">
   <div class="container section-title" data-aos="fade-up">
     <h2>Proceso en 4 pasos</h2>
+    <p>Así convertimos ruido informativo en señales accionables para equipos públicos y campañas.</p>
   </div>
   <div class="container">
     <div class="row gy-4">
-      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="100"><div class="plan-card h-100"><h4>Cobertura y fuentes</h4></div></div>
-      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="150"><div class="plan-card h-100"><h4>Clasificación temática</h4></div></div>
-      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="200"><div class="plan-card h-100"><h4>Marcos narrativos</h4></div></div>
-      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="250"><div class="plan-card h-100"><h4>Indicadores y alertas</h4></div></div>
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="100"><div class="plan-card h-100"><h4>1) Cobertura y fuentes</h4><p>Relevamos medios digitales, portales territoriales y conversación pública para construir una base semanal comparable.</p></div></div>
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="150"><div class="plan-card h-100"><h4>2) Clasificación temática</h4><p>Etiquetamos cada mención con una taxonomía estable (seguridad, economía, servicios, educación, salud y más).</p></div></div>
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="200"><div class="plan-card h-100"><h4>3) Marcos narrativos</h4><p>Detectamos el enfoque dominante de cada tema: gestión, conflicto, crisis, oportunidad o demanda ciudadana.</p></div></div>
+      <div class="col-lg-6 col-xl-3" data-aos="fade-up" data-aos-delay="250"><div class="plan-card h-100"><h4>4) Indicadores y alertas</h4><p>Entregamos índices sintéticos, tendencias y alertas tempranas para mejorar decisiones de agenda y comunicación.</p></div></div>
     </div>
   </div>
 </section>
@@ -52,15 +53,16 @@
 <section class="section">
   <div class="container section-title" data-aos="fade-up">
     <h2>Metodología</h2>
+    <p>Marco de análisis que permite comparar semanas, temas y narrativas sin perder contexto local.</p>
   </div>
   <div class="container" data-aos="fade-up" data-aos-delay="100">
     <div class="method-card">
       <ul>
-        <li>Frecuencia semanal.</li>
-        <li>Unidad: menciones por tema.</li>
-        <li>Taxonomía temática estable.</li>
-        <li>Índices IIA, ICC e IAT.</li>
-        <li>Estado prototipo (MVP).</li>
+        <li><strong>Frecuencia semanal:</strong> cierres periódicos para detectar subas, bajas y cambios bruscos.</li>
+        <li><strong>Unidad de análisis:</strong> menciones por tema y su distribución por territorio y tipo de fuente.</li>
+        <li><strong>Taxonomía temática estable:</strong> categorías fijas para comparar la evolución de largo plazo.</li>
+        <li><strong>Índices IIA, ICC e IAT:</strong> intensidad de agenda, conflictividad comunicacional y asociación tema-marco.</li>
+        <li><strong>Estado prototipo (MVP):</strong> resultados orientativos para validación funcional con clientes piloto.</li>
       </ul>
     </div>
   </div>
