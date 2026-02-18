@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Síntesis 360 | Radar Público (Demo)</title>
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/main.css', v='2026-02-18') }}" rel="stylesheet">
+</head>
+<body class="starter-page-page">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0"><span class="logo-mark">Síntesis 360</span><span class="logo-dot" aria-hidden="true">•</span></a>
+      <nav id="navmenu" class="navmenu"><ul>
+        <li><a href="{{ url_for('home') }}">Nuestro trabajo</a></li>
+        <li><a href="{{ url_for('radar') }}" class="active">Radar</a></li>
+        <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+        <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
+        <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+      </ul><i class="mobile-nav-toggle d-xl-none bi bi-list"></i></nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='img/features-bg.jpg') }}');">
+      <div class="container position-relative">
+        <h1>Radar Público (Demo)</h1>
+        <p>Monitoreo semanal de agenda y clima territorial. Piloto Córdoba.<br>Prototipo en construcción.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container" data-aos="fade-up">
+        <p>Este Radar ordena la conversación pública por temas y mide su evolución semanal. Complementa métricas con síntesis ejecutiva y alertas tempranas.</p>
+        <p>Algunas visualizaciones pueden mostrarse con datos simulados hasta completar integraciones.</p>
+      </div>
+    </section>
+
+    <section class="section light-background">
+      <div class="container section-title" data-aos="fade-up"><h2>Índices</h2></div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100"><div class="plan-card h-100"><h4>IIA — Índice de Intensidad de Agenda</h4><p>Mide cuánto sube o baja cada tema en la conversación pública.</p></div></div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150"><div class="plan-card h-100"><h4>ICC — Índice de Conflictividad Comunicacional</h4><p>Estima el peso de marcos de conflicto o crisis dentro de la agenda.</p></div></div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200"><div class="plan-card h-100"><h4>IAT — Índice de Asociación Tema↔Marco</h4><p>Mapea con qué marcos se instala cada tema (gestión, crisis, conflicto, etc.).</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-title" data-aos="fade-up"><h2>Dashboard interactivo (en construcción)</h2></div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="construction-banner">Aquí se integrará el tablero interactivo (Looker Studio) cuando esté disponible.<br>Se muestra estructura demo mientras se completan integraciones.</div>
+      </div>
+    </section>
+
+    <section class="section light-background">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6" data-aos="fade-up"><div class="method-card h-100"><h4>Hallazgos (demo)</h4><ul>
+            <li>La agenda se concentró en temas de ejemplo con aumento de intensidad.</li>
+            <li>Se detectó crecimiento de un tema emergente con marcos predominantes de conflicto.</li>
+            <li>Un tema estable cambió su marco hacia gestión.</li>
+          </ul></div></div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100"><div class="method-card h-100"><h4>Alertas tempranas</h4><ul>
+            <li>Señal de escalada en tema X.</li>
+            <li>Aumento de conflictividad en tema Y.</li>
+            <li>Oportunidad narrativa en tema Z.</li>
+          </ul></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-title" data-aos="fade-up"><h2>Archivo (demo)</h2></div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-3">
+          <div class="col-md-6"><div class="plan-card">Semana 01 — Demo</div></div>
+          <div class="col-md-6"><div class="plan-card">Semana 02 — Demo</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light-background">
+      <div class="container" data-aos="fade-up">
+        <div class="plan-card text-center">
+          <h3>Monitoreo privado</h3>
+          <p>Si necesitás este radar aplicado a tu jurisdicción o sector, podemos diseñar un monitoreo privado con tablero, alertas y reporte ejecutivo.</p>
+          <a class="btn btn-warning text-dark" href="{{ url_for('contacto') }}">Solicitar información</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Radar público en modo demo/prototipo.</span></p></div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
