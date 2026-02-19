@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Quiénes somos</title>
+  <title>Síntesis 360 | Radar Público</title>
   <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
   <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -16,9 +16,9 @@
       <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0"><span class="logo-mark">Síntesis 360</span><span class="logo-dot" aria-hidden="true">•</span></a>
       <nav id="navmenu" class="navmenu"><ul>
         <li><a href="{{ url_for('home') }}">Nuestro trabajo</a></li>
-        <li><a href="{{ url_for('radar') }}">Radar</a></li>
+        <li><a href="{{ url_for('radar') }}" class="active">Radar</a></li>
         <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
-        <li><a href="{{ url_for('equipo') }}" class="active">Equipo</a></li>
+        <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
         <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
       </ul><i class="mobile-nav-toggle d-xl-none bi bi-list"></i></nav>
     </div>
@@ -27,35 +27,23 @@
   <main class="main">
     <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='img/features-bg.jpg') }}');">
       <div class="container position-relative">
-        <h1>Quiénes somos</h1>
-        <p>Equipo en construcción con enfoque en datos, metodología y dashboards de decisión.</p>
+        <h1>Radar Público de Agenda y Clima Territorial</h1>
+        <p>Piloto abierto en Córdoba para mostrar metodología, indicadores y resultados comparables.</p>
       </div>
     </div>
 
     <section class="section">
       <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-4"><div class="method-card h-100"><h4>Equipo en construcción</h4><p>Estamos consolidando perfiles técnicos y de análisis para expandir el producto.</p></div></div>
-          <div class="col-lg-4"><div class="method-card h-100"><h4>Enfoque</h4><p>Datos, métricas, metodología reproducible y visualización clara para toma de decisiones.</p></div></div>
-          <div class="col-lg-4"><div class="method-card h-100"><h4>Principios</h4><p>Transparencia, replicabilidad y respeto por TOS y fuentes oficiales.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section light-background">
-      <div class="container section-title"><h2>Roles actuales (placeholders)</h2></div>
-      <div class="container">
-        <div class="row gy-3">
-          <div class="col-md-4"><div class="plan-card"><h5>Equipo de análisis</h5><p>Definición de temas y calidad de métricas.</p></div></div>
-          <div class="col-md-4"><div class="plan-card"><h5>Ingeniería de datos</h5><p>Conectores, deduplicación y pipelines.</p></div></div>
-          <div class="col-md-4"><div class="plan-card"><h5>Producto y UX</h5><p>Diseño del tablero y experiencia de uso.</p></div></div>
+          <div class="col-lg-6"><div class="method-card h-100"><h4>Objetivo</h4><p>Monitorear variaciones temáticas, intensidad y marcos narrativos para anticipar escenarios de gestión.</p></div></div>
+          <div class="col-lg-6"><div class="method-card h-100"><h4>Entregables</h4><p>Tablero de lectura rápida, alertas tempranas y síntesis ejecutiva con foco territorial.</p></div></div>
         </div>
       </div>
     </section>
   </main>
 
   <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Equipo en construcción.</span></p></div>
+    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Radar Público.</span></p></div>
   </footer>
 
   <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

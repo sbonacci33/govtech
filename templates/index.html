@@ -35,10 +35,10 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{{ url_for('home') }}" class="active">Inicio</a></li>
-          <li><a href="{{ url_for('home') }}#como-funciona">Cómo funciona</a></li>
-          <li><a href="{{ url_for('home') }}#planes">Planes</a></li>
-          <li><a href="{{ url_for('home') }}#metodologia">Metodología</a></li>
+          <li><a href="{{ url_for('home') }}" class="active">Nuestro trabajo</a></li>
+          <li><a href="{{ url_for('radar') }}">Radar</a></li>
+          <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+          <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
           <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -52,12 +52,13 @@
       <div class="container">
         <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
           <div class="col-xl-9 col-lg-10">
-            <h1>Observatorio de Clima de Opinión</h1>
-            <p class="hero-lead">Monitoreo de interés público y narrativa: menciones, temas, asociaciones y picos.</p>
-            <p class="hero-claim mt-4">Construimos un termómetro operativo para seguir cómo se instala, evoluciona y decae una conversación pública. Del dato a la decisión: seguimiento diario, detección de anomalías e informes ejecutivos.</p>
+            <h1>SÍNTESIS 360 <span class="logo-dot" aria-hidden="true">•</span></h1>
+            <p class="hero-lead">Radar Público de Agenda y Clima Territorial</p>
+            <p class="hero-claim mt-4">Inteligencia estratégica basada en datos para política y gestión. De la conversación pública a decisiones operables.</p>
             <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
-              <a class="btn btn-warning text-dark" href="{{ url_for('contacto') }}">Solicitar demo</a>
-              <a class="btn btn-outline-light" href="#metodologia">Ver metodología</a>
+              <a class="btn btn-warning text-dark" href="{{ url_for('radar') }}">RADAR</a>
+              <a class="btn btn-outline-light" href="#metodologia">METODOLOGÍA</a>
+              <a class="btn btn-outline-light" href="{{ url_for('contacto') }}">CONTACTO</a>
             </div>
           </div>
         </div>
@@ -66,8 +67,11 @@
 
     <section id="kpis" class="section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Panel de referencia</h2>
-        <p>Elegí una variable para simular el tablero. Próximamente, estos indicadores se alimentarán automáticamente.</p>
+        <h2>Unidad de inteligencia estratégica aplicada a agenda y clima público</h2>
+        <p>Síntesis 360 desarrolla un sistema para monitorear la agenda pública, medir intensidad temática, detectar marcos narrativos y producir alertas tempranas que impactan en la gobernabilidad y la gestión.</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="120">
+        <p class="text-center mb-4">El Radar Público funciona como piloto abierto (Córdoba) para mostrar metodología y resultados. En paralelo ofrecemos monitoreos privados con tableros, reportes ejecutivos y seguimiento específico por jurisdicción o sector.</p>
       </div>
       <div class="container">
         <div class="kpi-selector-wrap mb-4" data-aos="fade-up" data-aos-delay="100">
@@ -121,16 +125,14 @@
 
     <section id="como-funciona" class="section light-background">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Cómo funciona</h2>
-        <p>Pipeline reproducible para capturar, ordenar y convertir señales en decisiones accionables.</p>
+        <h2>Qué hacemos</h2>
       </div>
       <div class="container">
-        <div class="row gy-3">
-          <div class="col-md-6 col-lg-4"><div class="pipeline-step"><span>1</span> Definición de variables, taxonomías y reglas de consulta.</div></div>
-          <div class="col-md-6 col-lg-4"><div class="pipeline-step"><span>2</span> Ingesta automatizada desde fuentes habilitadas y conectores.</div></div>
-          <div class="col-md-6 col-lg-4"><div class="pipeline-step"><span>3</span> Limpieza, deduplicación y estandarización de menciones.</div></div>
-          <div class="col-md-6 col-lg-6"><div class="pipeline-step"><span>4</span> Cálculo de indicadores: volumen, velocidad, picos y persistencia.</div></div>
-          <div class="col-md-6 col-lg-6"><div class="pipeline-step"><span>5</span> Entrega en tablero, alertas y reportes ejecutivos comparables.</div></div>
+        <div class="row gy-4">
+          <div class="col-md-6 col-lg-3"><div class="method-card h-100"><h4>Cobertura y fuentes</h4><p>Recolectamos señales de medios digitales con criterios de cobertura y calidad. El objetivo es construir un insumo comparable semana a semana.</p></div></div>
+          <div class="col-md-6 col-lg-3"><div class="method-card h-100"><h4>Clasificación temática</h4><p>Organizamos la conversación con una taxonomía estable de temas y subtemas para medir evolución y emergentes.</p></div></div>
+          <div class="col-md-6 col-lg-3"><div class="method-card h-100"><h4>Marcos narrativos</h4><p>Identificamos cómo se discuten los temas: gestión, conflicto, crisis, judicialización, entre otros.</p></div></div>
+          <div class="col-md-6 col-lg-3"><div class="method-card h-100"><h4>Indicadores y alertas</h4><p>Generamos índices simples (intensidad, conflictividad y asociaciones) junto a una síntesis ejecutiva operativa.</p></div></div>
         </div>
       </div>
     </section>
@@ -254,9 +256,10 @@
         <div class="col-lg-3 col-6 footer-links">
           <h4>Links</h4>
           <ul>
-            <li><a href="{{ url_for('home') }}">Inicio</a></li>
-            <li><a href="{{ url_for('home') }}#planes">Planes</a></li>
-            <li><a href="{{ url_for('home') }}#metodologia">Metodología</a></li>
+            <li><a href="{{ url_for('home') }}">Nuestro trabajo</a></li>
+            <li><a href="{{ url_for('radar') }}">Radar</a></li>
+            <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+            <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
             <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
           </ul>
         </div>
