@@ -907,20 +907,20 @@ section,
 }
 
 .hero .hero-lead {
-  font-size: 22px;
+  font-size: 34px;
   font-weight: 600;
   color: var(--heading-color);
   text-transform: none;
 }
 
 .hero .hero-support {
-  font-size: 18px;
+  font-size: 28px;
   color: color-mix(in srgb, var(--default-color), transparent 45%);
   margin-top: 8px;
 }
 
 .hero .hero-claim {
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 600;
   color: var(--heading-color);
   margin-top: 8px;
@@ -997,15 +997,15 @@ section,
   }
 
   .hero .hero-lead {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   .hero .hero-support {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .hero .hero-claim {
-    font-size: 16px;
+    font-size: 22px;
   }
 }
 
@@ -2087,9 +2087,19 @@ section,
 
 
 .kpi-selector-wrap {
-  max-width: 460px;
+  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.kpi-selector-title {
+  font-weight: 700;
+}
+
+.kpi-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .kpi-selector-wrap .form-label {
@@ -2112,7 +2122,14 @@ section,
 .kpi-copy {
   display: block;
   margin-top: 8px;
+  line-height: 1.45;
   color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+@media (max-width: 768px) {
+  .kpi-filter-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .trend-chip {
