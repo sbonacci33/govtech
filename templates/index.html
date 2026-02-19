@@ -54,11 +54,12 @@
           <div class="col-xl-9 col-lg-10">
             <h1>SÍNTESIS 360 <span class="logo-dot" aria-hidden="true">•</span></h1>
             <p class="hero-lead">Radar Público de Agenda y Clima Territorial</p>
-            <p class="hero-claim mt-4">Inteligencia estratégica basada en datos para política y gestión. De la conversación pública a decisiones operables.</p>
+            <p class="hero-claim mt-4">Inteligencia estratégica basada en datos para política y gestión</p>
+            <p class="hero-support">De la conversación pública a decisiones operables.</p>
             <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
               <a class="btn btn-warning text-dark" href="{{ url_for('radar') }}">RADAR</a>
-              <a class="btn btn-outline-light" href="#metodologia">METODOLOGÍA</a>
-              <a class="btn btn-outline-light" href="{{ url_for('contacto') }}">CONTACTO</a>
+              <a class="btn btn-warning text-dark" href="#metodologia">METODOLOGÍA</a>
+              <a class="btn btn-warning text-dark" href="{{ url_for('contacto') }}">CONTACTO</a>
             </div>
           </div>
         </div>
@@ -67,59 +68,89 @@
 
     <section id="kpis" class="section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Unidad de inteligencia estratégica aplicada a agenda y clima público</h2>
-        <p>Síntesis 360 desarrolla un sistema para monitorear la agenda pública, medir intensidad temática, detectar marcos narrativos y producir alertas tempranas que impactan en la gobernabilidad y la gestión.</p>
+        <h2>Radar Público de Agenda y Clima Territorial</h2>
+        <p>Inteligencia estratégica basada en datos para anticipar escenarios y orientar decisiones de gestión.</p>
       </div>
       <div class="container" data-aos="fade-up" data-aos-delay="120">
-        <p class="text-center mb-4">El Radar Público funciona como piloto abierto (Córdoba) para mostrar metodología y resultados. En paralelo ofrecemos monitoreos privados con tableros, reportes ejecutivos y seguimiento específico por jurisdicción o sector.</p>
+        <p class="text-center mb-3">Síntesis 360 diseña y opera un sistema de monitoreo que transforma señales de medios y conversación pública en información accionable: temas en agenda, variaciones de intensidad, marcos narrativos y alertas tempranas. El objetivo es simple: reducir ruido, detectar cambios de clima y aportar evidencia para decidir y comunicar mejor.</p>
+        <p class="text-center mb-4">El Radar Público es un piloto abierto (Córdoba) que muestra metodología y resultados en formato accesible. En paralelo, ofrecemos monitoreos privados por jurisdicción o sector, con tableros, reportes ejecutivos y seguimiento continuo adaptado a cada necesidad.</p>
       </div>
       <div class="container">
         <div class="kpi-selector-wrap mb-4" data-aos="fade-up" data-aos-delay="100">
-          <label for="kpiVariable" class="form-label">Variable de seguimiento</label>
-          <select id="kpiVariable" class="form-select">
-            <option value="Miguel Siciliano">Miguel Siciliano</option>
-            <option value="Martín Llaryora">Martín Llaryora</option>
-            <option value="Seguridad">Seguridad</option>
-            <option value="Dólar">Dólar</option>
-            <option value="Inflación">Inflación</option>
-            <option value="Empleo">Empleo</option>
-            <option value="Obra pública">Obra pública</option>
-            <option value="Salud">Salud</option>
-            <option value="Educación">Educación</option>
-            <option value="Transporte">Transporte</option>
-          </select>
+          <p class="kpi-selector-title mb-2">Segmentadores visibles del piloto público</p>
+          <div class="kpi-filter-grid">
+            <div>
+              <label for="kpiTerritorio" class="form-label">Territorio</label>
+              <select id="kpiTerritorio" class="form-select kpi-filter">
+                <option value="provincia-cordoba">Provincia (Córdoba)</option>
+                <option value="municipio-cordoba">Municipio (Córdoba Capital)</option>
+                <option value="region-centro">Región Centro</option>
+                <option value="nacional">Nacional</option>
+              </select>
+            </div>
+            <div>
+              <label for="kpiTema" class="form-label">Tema principal</label>
+              <select id="kpiTema" class="form-select kpi-filter">
+                <option value="seguridad">Seguridad</option>
+                <option value="economia">Economía</option>
+                <option value="salud">Salud</option>
+                <option value="educacion">Educación</option>
+                <option value="infraestructura">Infraestructura</option>
+              </select>
+            </div>
+            <div>
+              <label for="kpiPeriodo" class="form-label">Ventana temporal</label>
+              <select id="kpiPeriodo" class="form-select kpi-filter">
+                <option value="24h">24h</option>
+                <option value="7d" selected>7 días</option>
+                <option value="30d">30 días</option>
+                <option value="custom">Personalizada</option>
+              </select>
+            </div>
+            <div>
+              <label for="kpiMarco" class="form-label">Marco narrativo</label>
+              <select id="kpiMarco" class="form-select kpi-filter">
+                <option value="gestion">Gestión</option>
+                <option value="conflicto">Conflicto</option>
+                <option value="crisis">Crisis</option>
+                <option value="judicializacion">Judicialización</option>
+                <option value="campania">Campaña</option>
+              </select>
+            </div>
+          </div>
+          <p class="small mb-0 mt-2">Capacidad técnica disponible para producto privado: subtema, tipo de fuente, fuente específica, tono, nivel de impacto y concentración temática.</p>
         </div>
         <div class="row gy-4">
           <div class="col-lg-3 col-md-6">
             <div class="kpi-card" data-aos="zoom-in">
-              <h3>Menciones (24h)</h3>
+              <h3>Intensidad (24h)</h3>
               <p id="kpi24h-value" class="kpi-value">--</p>
-              <small id="kpi24h-copy" class="kpi-copy">Simulación activa para variable seleccionada.</small>
+              <small id="kpi24h-copy" class="kpi-copy">Volumen total de menciones clasificadas en las últimas 24 horas según los filtros activos. Permite detectar picos de atención o cambios abruptos en la agenda.</small>
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="kpi-card" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Menciones (7 días)</h3>
+              <h3>Intensidad (7 días)</h3>
               <p id="kpi7d-value" class="kpi-value">--</p>
-              <small id="kpi7d-copy" class="kpi-copy">Evolución acumulada en modo demostración.</small>
+              <small id="kpi7d-copy" class="kpi-copy">Acumulado semanal de menciones dentro del segmento seleccionado. Base para analizar variaciones y detectar emergentes.</small>
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="kpi-card" data-aos="zoom-in" data-aos-delay="200">
-              <h3>Fuentes únicas (7 días)</h3>
+              <h3>Diversidad de fuentes</h3>
               <p id="kpiSources-value" class="kpi-value">--</p>
-              <small id="kpiSources-copy" class="kpi-copy">Cobertura estimada por origen detectado.</small>
+              <small id="kpiSources-copy" class="kpi-copy">Cantidad de fuentes únicas que participaron en la conversación dentro del período y segmento activos. Indica amplitud y dispersión temática.</small>
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="kpi-card" data-aos="zoom-in" data-aos-delay="300">
-              <h3>Señal de tendencia</h3>
+              <h3>Variación semanal</h3>
               <p id="kpiTrend-value" class="kpi-value">--</p>
-              <small id="kpiTrend-copy" class="kpi-copy">Chip demostrativo de dirección (↑ → ↓).</small>
+              <small id="kpiTrend-copy" class="kpi-copy">Cambio porcentual de intensidad respecto al período anterior dentro del segmento seleccionado. Funciona como señal temprana de escalada o desaceleración.</small>
             </div>
           </div>
         </div>
-        <p class="text-center small mt-4">Modo demo: valores simulados para visualizar comportamiento del tablero.</p>
+        <p class="text-center small mt-4">Modo demo: los indicadores se recalculan automáticamente cada vez que cambia cualquier segmentador visible.</p>
       </div>
     </section>
 
@@ -283,45 +314,41 @@
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   <script>
     (function () {
-      const selector = document.getElementById('kpiVariable');
-      const dataByVariable = {
-        'Miguel Siciliano': { mentions24h: '1.240', mentions7d: '8.910', sources: '124', trend: '↑ Alza moderada' },
-        'Martín Llaryora': { mentions24h: '1.680', mentions7d: '10.530', sources: '176', trend: '→ Estable' },
-        'Seguridad': { mentions24h: '2.140', mentions7d: '14.880', sources: '232', trend: '↑ Alza fuerte' },
-        'Dólar': { mentions24h: '1.920', mentions7d: '13.120', sources: '198', trend: '↑ Volátil' },
-        'Inflación': { mentions24h: '1.560', mentions7d: '11.740', sources: '165', trend: '→ Estable alta' },
-        'Empleo': { mentions24h: '930', mentions7d: '6.210', sources: '108', trend: '↓ Desacelerando' },
-        'Obra pública': { mentions24h: '870', mentions7d: '5.940', sources: '96', trend: '→ Estable' },
-        'Salud': { mentions24h: '1.110', mentions7d: '7.450', sources: '131', trend: '↑ Recuperando interés' },
-        'Educación': { mentions24h: '980', mentions7d: '7.020', sources: '117', trend: '→ Estable' },
-        'Transporte': { mentions24h: '1.030', mentions7d: '6.780', sources: '122', trend: '↓ Baja gradual' }
-      };
+      const filters = Array.from(document.querySelectorAll('.kpi-filter'));
+
+      const numberFormat = new Intl.NumberFormat('es-AR');
 
       const trendClass = (value) => {
-        if (value.startsWith('↑')) return 'trend-up';
-        if (value.startsWith('↓')) return 'trend-down';
+        if (value > 0) return 'trend-up';
+        if (value < 0) return 'trend-down';
         return 'trend-neutral';
       };
 
-      const renderKpis = () => {
-        const selected = selector.value;
-        const current = dataByVariable[selected];
-
-        document.getElementById('kpi24h-value').textContent = current.mentions24h;
-        document.getElementById('kpi7d-value').textContent = current.mentions7d;
-        document.getElementById('kpiSources-value').textContent = current.sources;
-
-        const trendNode = document.getElementById('kpiTrend-value');
-        trendNode.textContent = current.trend;
-        trendNode.className = `kpi-value trend-chip ${trendClass(current.trend)}`;
-
-        document.getElementById('kpi24h-copy').textContent = `Ventana de 24h simulada para ${selected}.`;
-        document.getElementById('kpi7d-copy').textContent = `Acumulado semanal estimado en modo demo para ${selected}.`;
-        document.getElementById('kpiSources-copy').textContent = `Cantidad de fuentes únicas detectadas (simulación): ${selected}.`;
-        document.getElementById('kpiTrend-copy').textContent = `Señal indicativa de dirección narrativa para ${selected}.`;
+      const trendLabel = (value) => {
+        if (value > 0) return '↑ En aumento';
+        if (value < 0) return '↓ En descenso';
+        return '→ Estable';
       };
 
-      selector.addEventListener('change', renderKpis);
+      const filterScore = () => filters.reduce((acc, select, index) => acc + ((select.selectedIndex + 1) * (index + 2)), 0);
+
+      const renderKpis = () => {
+        const score = filterScore();
+        const intensidad24h = 350 + (score * 17);
+        const intensidad7d = Math.round(intensidad24h * (5.4 + ((score % 5) * 0.35)));
+        const fuentesUnicas = 35 + ((score * 11) % 210);
+        const variacion = ((score % 19) - 9) * 2;
+
+        document.getElementById('kpi24h-value').textContent = numberFormat.format(intensidad24h);
+        document.getElementById('kpi7d-value').textContent = numberFormat.format(intensidad7d);
+        document.getElementById('kpiSources-value').textContent = numberFormat.format(fuentesUnicas);
+
+        const trendNode = document.getElementById('kpiTrend-value');
+        trendNode.textContent = `${trendLabel(variacion)} (${variacion > 0 ? '+' : ''}${variacion}%)`;
+        trendNode.className = `kpi-value trend-chip ${trendClass(variacion)}`;
+      };
+
+      filters.forEach((select) => select.addEventListener('change', renderKpis));
       renderKpis();
     })();
   </script>
