@@ -1,357 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Observatorio de Clima de Opinión</title>
-  <meta name="description" content="Observatorio de Clima de Opinión: social listening y monitoreo de interés público.">
-  <meta name="keywords" content="observatorio, clima de opinión, social listening, monitoreo">
-
-  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
-  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-
-  <link href="{{ url_for('static', filename='css/main.css', v='2026-02-18') }}" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GovTech | Inteligencia política</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --text: #111;
+      --muted: #666;
+      --night: #1a1a2e;
+      --green: #5be3a4;
+      --dark: #0c0e12;
+      --line: #ddddda;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+    .nav { position: fixed; inset: 0 0 auto 0; z-index: 30; background: rgba(250,250,248,.92); border-bottom: 1px solid #ecece9; backdrop-filter: blur(8px); }
+    .nav-wrap { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+    .logo { font-family: 'Syne', sans-serif; font-size: 1.2rem; color: var(--night); }
+    .menu { display: flex; gap: 22px; font-size: 0.8rem; text-transform: uppercase; }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 72px; background-image: radial-gradient(#e5e5e2 1px, transparent 1px); background-size: 18px 18px; }
+    .hero h1 { font: 700 64px/1.05 'Syne', sans-serif; max-width: 900px; margin: 0 0 20px; }
+    .hero p { color: var(--muted); font-size: 18px; margin: 0 0 28px; max-width: 860px; }
+    .btn { display: inline-block; border: 1px solid var(--night); padding: 14px 18px; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; position: relative; overflow: hidden; z-index: 1; }
+    .btn::before { content: ""; position: absolute; inset: 0; background: var(--night); transform: scaleX(0); transform-origin: left; transition: transform .35s; z-index: -1; }
+    .btn:hover { color: #fff; }
+    .btn:hover::before { transform: scaleX(1); }
+    section { padding: 90px 0; }
+    h2 { font: 700 42px/1.1 'Syne', sans-serif; margin: 0 0 26px; }
+    .muted { color: var(--muted); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .feature h3 { font: 700 22px/1.1 'Syne', sans-serif; margin: 14px 0 10px; }
+    .feature p { margin: 0; color: #444; font-size: 13px; }
+    .product { background: var(--dark); color: #fff; }
+    .product p { color: #c9ced8; max-width: 780px; }
+    .screen { border: 1px solid #2d3240; border-radius: 12px; padding: 24px; margin: 24px 0; background: linear-gradient(180deg,#111621,#0d1017); }
+    .metrics { display:grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+    .metric { border: 1px solid #29303d; border-radius: 10px; padding: 14px; }
+    .metric .value { color: var(--green); font: 700 30px/1 'Syne', sans-serif; }
+    .metric .label { color: #9eabbd; font-size: 11px; }
+    .btn-outline { border-color: #fff; color: #fff; }
+    .btn-outline::before { background: #fff; }
+    .btn-outline:hover { color: #111; }
+    .service-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+    .service-list li { padding: 17px 0; border-bottom: 1px solid var(--line); }
+    footer { text-align: center; padding: 40px 0; font-size: 11px; color: var(--muted); }
+    .fade-up { opacity: 0; transform: translateY(18px); animation: rise .8s ease forwards; }
+    .delay-1 { animation-delay: .15s; }
+    .delay-2 { animation-delay: .3s; }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 42px; }
+      .grid-3, .metrics { grid-template-columns: 1fr; }
+      .menu { gap: 12px; font-size: 10px; }
+    }
+  </style>
 </head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0">
-        <span class="logo-mark">Síntesis 360</span>
-        <span class="logo-dot" aria-hidden="true">•</span>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="{{ url_for('home') }}" class="active">Nuestro trabajo</a></li>
-          <li><a href="{{ url_for('radar') }}">Radar</a></li>
-          <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
-          <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
-          <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+<body>
+  <header class="nav">
+    <div class="container nav-wrap">
+      <a class="logo" href="{{ url_for('home') }}">GovTech</a>
+      <nav class="menu">
+        <a href="{{ url_for('radar') }}">Radar</a>
+        <a href="{{ url_for('servicios') }}">Servicios</a>
+        <a href="{{ url_for('equipo') }}">Equipo</a>
+        <a href="{{ url_for('contacto') }}">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <main class="main">
-    <section id="inicio" class="hero section dark-background">
-      <img src="{{ url_for('static', filename='img/hero-bg.jpg') }}" alt="Fondo Observatorio" data-aos="fade-in">
-      <div class="container">
-        <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-xl-9 col-lg-10">
-            <h1>SÍNTESIS 360 <span class="logo-dot" aria-hidden="true">•</span></h1>
-            <p class="hero-lead">Radar Público de Agenda y Clima Territorial</p>
-            <p class="hero-claim mt-4">Inteligencia estratégica basada en datos para política y gestión</p>
-            <p class="hero-support">De la conversación pública a decisiones operables.</p>
-            <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
-              <a class="btn btn-warning text-dark" href="{{ url_for('radar') }}">RADAR</a>
-              <a class="btn btn-warning text-dark" href="#metodologia">METODOLOGÍA</a>
-              <a class="btn btn-warning text-dark" href="{{ url_for('contacto') }}">CONTACTO</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="hero">
+    <div class="container">
+      <h1 class="fade-up">Inteligencia política para quienes toman decisiones</h1>
+      <p class="fade-up delay-1">Monitoreo de agenda · Análisis de opinión pública · Estrategia comunicacional</p>
+      <a class="btn fade-up delay-2" href="{{ url_for('radar') }}">Ver el Radar →</a>
+    </div>
+  </section>
 
-    <section id="kpis" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Radar Público de Agenda y Clima Territorial</h2>
-        <p>Inteligencia estratégica basada en datos para anticipar escenarios y orientar decisiones de gestión.</p>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="120">
-        <p class="text-center mb-3">Síntesis 360 diseña y opera un sistema de monitoreo que transforma señales de medios y conversación pública en información accionable: temas en agenda, variaciones de intensidad, marcos narrativos y alertas tempranas. El objetivo es simple: reducir ruido, detectar cambios de clima y aportar evidencia para decidir y comunicar mejor.</p>
-        <p class="text-center mb-4">El Radar Público es un piloto abierto (Córdoba) que muestra metodología y resultados en formato accesible. En paralelo, ofrecemos monitoreos privados por jurisdicción o sector, con tableros, reportes ejecutivos y seguimiento continuo adaptado a cada necesidad.</p>
-      </div>
-      <div class="container">
-        <div class="kpi-selector-wrap mb-4" data-aos="fade-up" data-aos-delay="100">
-          <p class="kpi-selector-title mb-2">Segmentadores visibles del piloto público</p>
-          <div class="kpi-filter-grid">
-            <div>
-              <label for="kpiTerritorio" class="form-label">Territorio</label>
-              <select id="kpiTerritorio" class="form-select kpi-filter">
-                <option value="provincia-cordoba">Provincia (Córdoba)</option>
-                <option value="municipio-cordoba">Municipio (Córdoba Capital)</option>
-                <option value="region-centro">Región Centro</option>
-                <option value="nacional">Nacional</option>
-              </select>
-            </div>
-            <div>
-              <label for="kpiTema" class="form-label">Tema principal</label>
-              <select id="kpiTema" class="form-select kpi-filter">
-                <option value="seguridad">Seguridad</option>
-                <option value="economia">Economía</option>
-                <option value="salud">Salud</option>
-                <option value="educacion">Educación</option>
-                <option value="infraestructura">Infraestructura</option>
-              </select>
-            </div>
-            <div>
-              <label for="kpiPeriodo" class="form-label">Ventana temporal</label>
-              <select id="kpiPeriodo" class="form-select kpi-filter">
-                <option value="24h">24h</option>
-                <option value="7d" selected>7 días</option>
-                <option value="30d">30 días</option>
-                <option value="custom">Personalizada</option>
-              </select>
-            </div>
-            <div>
-              <label for="kpiMarco" class="form-label">Marco narrativo</label>
-              <select id="kpiMarco" class="form-select kpi-filter">
-                <option value="gestion">Gestión</option>
-                <option value="conflicto">Conflicto</option>
-                <option value="crisis">Crisis</option>
-                <option value="judicializacion">Judicialización</option>
-                <option value="campania">Campaña</option>
-              </select>
-            </div>
-          </div>
-          <p class="small mb-0 mt-2">Capacidad técnica disponible para producto privado: subtema, tipo de fuente, fuente específica, tono, nivel de impacto y concentración temática.</p>
-        </div>
-        <div class="row gy-4">
-          <div class="col-lg-3 col-md-6">
-            <div class="kpi-card" data-aos="zoom-in">
-              <h3>Intensidad (24h)</h3>
-              <p id="kpi24h-value" class="kpi-value">--</p>
-              <small id="kpi24h-copy" class="kpi-copy">Volumen total de menciones clasificadas en las últimas 24 horas según los filtros activos. Permite detectar picos de atención o cambios abruptos en la agenda.</small>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="kpi-card" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Intensidad (7 días)</h3>
-              <p id="kpi7d-value" class="kpi-value">--</p>
-              <small id="kpi7d-copy" class="kpi-copy">Acumulado semanal de menciones dentro del segmento seleccionado. Base para analizar variaciones y detectar emergentes.</small>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="kpi-card" data-aos="zoom-in" data-aos-delay="200">
-              <h3>Diversidad de fuentes</h3>
-              <p id="kpiSources-value" class="kpi-value">--</p>
-              <small id="kpiSources-copy" class="kpi-copy">Cantidad de fuentes únicas que participaron en la conversación dentro del período y segmento activos. Indica amplitud y dispersión temática.</small>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="kpi-card" data-aos="zoom-in" data-aos-delay="300">
-              <h3>Variación semanal</h3>
-              <p id="kpiTrend-value" class="kpi-value">--</p>
-              <small id="kpiTrend-copy" class="kpi-copy">Cambio porcentual de intensidad respecto al período anterior dentro del segmento seleccionado. Funciona como señal temprana de escalada o desaceleración.</small>
-            </div>
-          </div>
-        </div>
-        <p class="text-center small mt-4">Modo demo: los indicadores se recalculan automáticamente cada vez que cambia cualquier segmentador visible.</p>
-      </div>
-    </section>
-
-    <section id="como-funciona" class="section light-background">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Qué hacemos</h2>
-      </div>
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-md-6 col-lg-3"><div class="method-card h-100"><h4>Cobertura y fuentes</h4><p>Recolectamos señales de medios digitales con criterios de cobertura y calidad. El objetivo es construir un insumo comparable semana a semana.</p></div></div>
-          <div class="col-md-6 col-lg-3"><div class="method-card h-100"><h4>Clasificación temática</h4><p>Organizamos la conversación con una taxonomía estable de temas y subtemas para medir evolución y emergentes.</p></div></div>
-          <div class="col-md-6 col-lg-3"><div class="method-card h-100"><h4>Marcos narrativos</h4><p>Identificamos cómo se discuten los temas: gestión, conflicto, crisis, judicialización, entre otros.</p></div></div>
-          <div class="col-md-6 col-lg-3"><div class="method-card h-100"><h4>Indicadores y alertas</h4><p>Generamos índices simples (intensidad, conflictividad y asociaciones) junto a una síntesis ejecutiva operativa.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="dashboard" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Dashboard</h2>
-        <p>Dashboard en construcción</p>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="dashboard-placeholder text-center p-5">
-          <h3>Dashboard en construcción</h3>
-          <p>Próximamente: vista ejecutiva, evolución temporal y comparativo de variables priorizadas.</p>
-          <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
-            <span class="status-chip status-soon">Tendencias temporales — Próximamente</span>
-            <span class="status-chip status-soon">Mapa de temas — Próximamente</span>
-            <span class="status-chip status-soon">Alertas de anomalía — Próximamente</span>
-          </div>
-          <a href="{{ url_for('contacto') }}" class="btn btn-warning text-dark">Notificarme cuando esté listo</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="metricas" class="section light-background">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Qué medimos</h2>
-        <p>Métricas núcleo del observatorio</p>
-      </div>
-      <div class="container">
-        <ul class="metrics-list">
-          <li>Volumen diario / semanal</li>
-          <li>Share of Voice (comparación entre temas)</li>
-          <li>Picos anómalos</li>
-          <li>Velocidad de crecimiento de conversación</li>
-          <li>Decaimiento (half-life) / persistencia</li>
-          <li>Cambios de régimen</li>
-          <li>Temas y asociaciones</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="planes" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Planes</h2>
-        <p>Esquema modular de adopción</p>
-      </div>
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-4"><div class="plan-card"><h3>Base — Termómetro</h3><span class="status-chip status-live">Disponible</span><ul><li>Monitoreo inicial web/medios</li><li>Tendencias básicas</li><li>Reporte de seguimiento</li></ul></div></div>
-          <div class="col-lg-4"><div class="plan-card"><h3>Plus — Narrativa</h3><span class="status-chip status-soon">En preparación</span><ul><li>Temas y asociaciones</li><li>Análisis comparativo por tema</li><li>Mejoras de taxonomía</li></ul></div></div>
-          <div class="col-lg-4"><div class="plan-card"><h3>Pro — Alertas + Reportes</h3><span class="status-chip status-soon">Próximamente</span><ul><li>Alertas de picos/rupturas</li><li>Reportes ejecutivos</li><li>Escalabilidad de fuentes</li></ul></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="metodologia" class="section light-background">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Metodología</h2>
-        <p>Marco técnico y criterios de consistencia analítica</p>
-      </div>
-      <div class="container">
-        <div class="row gy-3">
-          <div class="col-lg-6"><div class="method-card"><h4>Unidad de análisis</h4><p>Una mención representa una ocurrencia detectada en fuentes habilitadas y trazables, consolidada bajo reglas de normalización comunes.</p></div></div>
-          <div class="col-lg-6"><div class="method-card"><h4>Cobertura de fuentes</h4><p>El universo de observación evoluciona por etapas: se priorizan fuentes con acceso estable, calidad documental y cumplimiento normativo.</p></div></div>
-          <div class="col-lg-6"><div class="method-card"><h4>Calidad y consistencia</h4><p>Aplicamos deduplicación, validaciones de estructura y controles de coherencia para sostener series comparables en el tiempo.</p></div></div>
-          <div class="col-lg-6"><div class="method-card"><h4>Gobernanza metodológica</h4><p>Las decisiones de clasificación y cálculo se documentan para auditoría interna, iteración técnica y comunicación ejecutiva transparente.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="roadmap" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Roadmap</h2>
-        <p>MVP y versión robusta</p>
-      </div>
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6">
-            <div class="roadmap-card">
-              <h4>MVP (1–2 semanas)</h4>
-              <ul>
-                <li><i class="bi bi-check2-circle"></i> Alerts + RSS</li>
-                <li><i class="bi bi-check2-circle"></i> Tablero inicial</li>
-                <li><i class="bi bi-check2-circle"></i> Reporte semanal</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="roadmap-card">
-              <h4>Versión robusta</h4>
-              <ul>
-                <li><i class="bi bi-check2-circle"></i> Proveedores/APIs pagas</li>
-                <li><i class="bi bi-check2-circle"></i> NLP más avanzado</li>
-                <li><i class="bi bi-check2-circle"></i> Alertas de crisis</li>
-                <li><i class="bi bi-check2-circle"></i> BigQuery y escalabilidad</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cta dark-background">
-      <img src="{{ url_for('static', filename='img/cta-bg.jpg') }}" alt="CTA">
-      <div class="container text-center" data-aos="zoom-in">
-        <h3>¿Querés monitorear un tema? Hablemos.</h3>
-        <a class="cta-btn" href="{{ url_for('contacto') }}">Ir a contacto</a>
-      </div>
-    </section>
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-6 col-md-12 footer-about">
-          <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
-            <span class="sitename">Síntesis 360<span class="logo-dot" aria-hidden="true">•</span></span>
-          </a>
-          <p>Observatorio de Clima de Opinión: inteligencia narrativa para seguimiento estratégico y decisiones basadas en evidencia.</p>
-        </div>
-        <div class="col-lg-3 col-6 footer-links">
-          <h4>Links</h4>
-          <ul>
-            <li><a href="{{ url_for('home') }}">Nuestro trabajo</a></li>
-            <li><a href="{{ url_for('radar') }}">Radar</a></li>
-            <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
-            <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
-            <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
-          </ul>
-        </div>
+  <section>
+    <div class="container">
+      <h2>Qué hacemos</h2>
+      <div class="grid-3">
+        <article class="feature"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M3 6h18M3 18h12" stroke="#1a1a2e" stroke-width="1.6"/></svg><h3>Monitoreo de agenda</h3><p>Seguimiento en tiempo real de la agenda mediática provincial y nacional. Detección temprana de temas emergentes y riesgos comunicacionales.</p></article>
+        <article class="feature"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 17l5-5 4 4 7-8" stroke="#1a1a2e" stroke-width="1.6"/><circle cx="4" cy="17" r="1" fill="#5be3a4"/></svg><h3>Análisis de opinión pública</h3><p>Integración de datos de medios y redes sociales para medir el pulso ciudadano sobre temas de gobierno.</p></article>
+        <article class="feature"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v10l-8 4-8-4V7l8-4Z" stroke="#1a1a2e" stroke-width="1.6"/></svg><h3>Estrategia comunicacional</h3><p>Informes ejecutivos y recomendaciones accionables para funcionarios y equipos de gestión.</p></article>
       </div>
     </div>
-    <div class="container copyright text-center mt-4">
-      <p><span>Síntesis 360.</span></p>
+  </section>
+
+  <section class="product">
+    <div class="container">
+      <h2>Radar 360</h2>
+      <p>Un sistema de monitoreo político que procesa cientos de fuentes simultáneamente, clasifica temas, detecta tendencias y entrega alertas ejecutivas. Datos reales. Análisis propio.</p>
+      <div class="screen">
+        <div class="metrics">
+          <div class="metric"><div class="value" data-target="1847">0</div><div class="label">notas procesadas esta semana</div></div>
+          <div class="metric"><div class="value" data-target="34">0</div><div class="label">temas activos</div></div>
+          <div class="metric"><div class="value" data-target="6">0</div><div class="label">fuentes de datos integradas</div></div>
+          <div class="metric"><div class="value">30 min</div><div class="label">actualización</div></div>
+        </div>
+      </div>
+      <a class="btn btn-outline" href="{{ url_for('radar') }}">Explorar el Radar →</a>
     </div>
-  </footer>
+  </section>
 
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <div id="preloader"></div>
+  <section>
+    <div class="container">
+      <h2>Cómo trabajamos</h2>
+      <ul class="service-list">
+        <li>Relevamiento semanal de agenda mediática</li>
+        <li>Informe ejecutivo lunes 8:00 AM</li>
+        <li>Análisis de cobertura y tono por actor político</li>
+        <li>Alertas de tensión en tiempo real</li>
+      </ul>
+    </div>
+  </section>
 
-  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <section>
+    <div class="container">
+      <h2>¿Trabajamos juntos?</h2>
+      <p class="muted">Para gobiernos provinciales, municipales y equipos de campaña.</p>
+      <p><a href="mailto:hola@govtech.ar">hola@govtech.ar</a></p>
+      <p><a href="#">LinkedIn</a></p>
+    </div>
+  </section>
+
+  <footer>© 2026 GovTech · Córdoba, Argentina</footer>
+
   <script>
-    (function () {
-      const filters = Array.from(document.querySelectorAll('.kpi-filter'));
-
-      const numberFormat = new Intl.NumberFormat('es-AR');
-
-      const trendClass = (value) => {
-        if (value > 0) return 'trend-up';
-        if (value < 0) return 'trend-down';
-        return 'trend-neutral';
-      };
-
-      const trendLabel = (value) => {
-        if (value > 0) return '↑ En aumento';
-        if (value < 0) return '↓ En descenso';
-        return '→ Estable';
-      };
-
-      const filterScore = () => filters.reduce((acc, select, index) => acc + ((select.selectedIndex + 1) * (index + 2)), 0);
-
-      const renderKpis = () => {
-        const score = filterScore();
-        const intensidad24h = 350 + (score * 17);
-        const intensidad7d = Math.round(intensidad24h * (5.4 + ((score % 5) * 0.35)));
-        const fuentesUnicas = 35 + ((score * 11) % 210);
-        const variacion = ((score % 19) - 9) * 2;
-
-        document.getElementById('kpi24h-value').textContent = numberFormat.format(intensidad24h);
-        document.getElementById('kpi7d-value').textContent = numberFormat.format(intensidad7d);
-        document.getElementById('kpiSources-value').textContent = numberFormat.format(fuentesUnicas);
-
-        const trendNode = document.getElementById('kpiTrend-value');
-        trendNode.textContent = `${trendLabel(variacion)} (${variacion > 0 ? '+' : ''}${variacion}%)`;
-        trendNode.className = `kpi-value trend-chip ${trendClass(variacion)}`;
-      };
-
-      filters.forEach((select) => select.addEventListener('change', renderKpis));
-      renderKpis();
-    })();
+    function animateValue(el, end, duration) {
+      const start = 0;
+      const startTs = performance.now();
+      function tick(ts) {
+        const progress = Math.min((ts - startTs) / duration, 1);
+        el.textContent = Math.floor(start + (end - start) * progress).toLocaleString('es-AR');
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    document.querySelectorAll('[data-target]').forEach(el => animateValue(el, Number(el.dataset.target), 1500));
   </script>
 </body>
-
 </html>

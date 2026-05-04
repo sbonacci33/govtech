@@ -1,53 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Radar Público</title>
-  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
-  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/main.css', v='2026-02-18') }}" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GovTech | Radar 360</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0c0e12;--card:#111621;--line:#252b35;--text:#ebedf0;--muted:#8a95a7;--green:#5be3a4;--blue:#7ba7f5}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Mono',monospace}
+    .container{width:min(1140px,92%);margin:0 auto}.top{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(12,14,18,.95);z-index:10}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}.logo{font:700 20px 'Syne',sans-serif;color:#fff;text-decoration:none}.menu a{margin-left:18px;color:#d6dae1;text-decoration:none;font-size:12px;text-transform:uppercase}
+    .back{display:inline-block;color:var(--muted);font-size:11px;margin-top:18px;text-decoration:none}
+    .head{padding:26px 0 12px;display:flex;justify-content:space-between;align-items:center}.brand{font:700 40px 'Syne',sans-serif;color:var(--green)}
+    .pulse{display:inline-block;width:8px;height:8px;background:var(--green);border-radius:999px;animation:pulse 1.4s infinite;margin:0 8px}@keyframes pulse{0%{opacity:1}70%{opacity:.15}100%{opacity:1}}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:var(--card);border:1px solid var(--line);padding:14px;border-radius:10px}.k{font-size:11px;color:var(--muted)}.v{font:700 30px 'Syne',sans-serif}
+    .block{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+    .wrap{position:relative;height:280px}.small{position:relative;height:220px}
+    .filters button{background:transparent;border:1px solid #324050;color:#d5dde8;padding:6px 10px;margin-right:6px;border-radius:20px;font-size:11px;cursor:pointer}.filters button.active{border-color:var(--green);color:var(--green)}
+    .bars{margin-top:12px}.bar-row{display:grid;grid-template-columns:150px 1fr 30px;gap:10px;align-items:center;margin:8px 0}.bar{height:10px;background:rgba(91,227,164,.7);border-radius:999px}
+    .bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:14px 0 30px}.feed{max-height:220px;overflow-y:auto}.item{padding:9px 0;border-bottom:1px solid #202633}.item .f{font-size:11px;color:var(--muted)}.item .t{font-size:13px}.item .m{font-size:11px;color:var(--green)}
+    @media(max-width:900px){.cards,.bottom{grid-template-columns:1fr}.head{display:block}.menu a{margin-left:10px}}
+  </style>
 </head>
-<body class="starter-page-page">
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0"><span class="logo-mark">Síntesis 360</span><span class="logo-dot" aria-hidden="true">•</span></a>
-      <nav id="navmenu" class="navmenu"><ul>
-        <li><a href="{{ url_for('home') }}">Nuestro trabajo</a></li>
-        <li><a href="{{ url_for('radar') }}" class="active">Radar</a></li>
-        <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
-        <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
-        <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
-      </ul><i class="mobile-nav-toggle d-xl-none bi bi-list"></i></nav>
-    </div>
-  </header>
+<body>
+  <header class="top"><div class="container nav"><a class="logo" href="{{ url_for('home') }}">GovTech</a><nav class="menu"><a href="{{ url_for('radar') }}">Radar</a><a href="{{ url_for('servicios') }}">Servicios</a><a href="{{ url_for('equipo') }}">Equipo</a><a href="{{ url_for('contacto') }}">Contacto</a></nav></div></header>
+  <main class="container">
+    <a class="back" href="{{ url_for('home') }}">← Volver al inicio</a>
+    <div class="head"><div class="brand">Radar 360 <span class="pulse"></span></div><div id="fecha" class="k"></div></div>
+    <section class="cards">
+      <div class="card"><div class="k">Total registros</div><div class="v" id="mTotal">0</div></div>
+      <div class="card"><div class="k">Temas únicos</div><div class="v" id="mTemas">0</div></div>
+      <div class="card"><div class="k">Medio más frecuente</div><div class="v" id="mMedio" style="font-size:22px"></div></div>
+      <div class="card"><div class="k">Última actualización</div><div class="v" id="mFecha" style="font-size:22px"></div></div>
+    </section>
 
-  <main class="main">
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='img/features-bg.jpg') }}');">
-      <div class="container position-relative">
-        <h1>Radar Público de Agenda y Clima Territorial</h1>
-        <p>Piloto abierto en Córdoba para mostrar metodología, indicadores y resultados comparables.</p>
-      </div>
-    </div>
+    <section class="block"><h3>Intensidad por tema (4 semanas)</h3><div class="wrap"><canvas id="linea" role="img" aria-label="Intensidad semanal por tema"></canvas></div></section>
+    <section class="block"><h3>Top temas últimos 7 días</h3><div class="filters" id="filtros"></div><div class="bars" id="bars"></div></section>
 
-    <section class="section">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6"><div class="method-card h-100"><h4>Objetivo</h4><p>Monitorear variaciones temáticas, intensidad y marcos narrativos para anticipar escenarios de gestión.</p></div></div>
-          <div class="col-lg-6"><div class="method-card h-100"><h4>Entregables</h4><p>Tablero de lectura rápida, alertas tempranas y síntesis ejecutiva con foco territorial.</p></div></div>
-        </div>
-      </div>
+    <section class="bottom">
+      <div class="block"><h3>Top 5 medios</h3><div class="small"><canvas id="medios" role="img" aria-label="Top medios"></canvas></div></div>
+      <div class="block"><h3>Actividad por día</h3><div class="small"><canvas id="dias" role="img" aria-label="Actividad por día"></canvas></div></div>
+      <div class="block"><h3>Últimas notas</h3><div class="feed" id="feed"></div></div>
     </section>
   </main>
 
-  <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Radar Público.</span></p></div>
-  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script>
+    const datos = {{ datos_json | safe }};
+    const colores = ['#5be3a4','#e26b6b','#7ba7f5','#f0a854','#c084fc'];
+    const parseDate = d => new Date(d + 'T00:00:00');
+    const countBy = (arr, key) => arr.reduce((a,x)=>(a[x[key]]=(a[x[key]]||0)+1,a),{});
+    const maxKey = obj => Object.entries(obj).sort((a,b)=>b[1]-a[1])[0]?.[0] || '-';
 
-  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    document.getElementById('fecha').textContent = new Date().toLocaleDateString('es-AR', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    document.getElementById('mTotal').textContent = datos.length;
+    document.getElementById('mTemas').textContent = new Set(datos.map(d=>d.Tema)).size;
+    document.getElementById('mMedio').textContent = maxKey(countBy(datos,'Medio'));
+    document.getElementById('mFecha').textContent = datos.map(d=>d.Fecha).sort().at(-1);
+
+    function isoWeekKey(date){const d=new Date(Date.UTC(date.getFullYear(),date.getMonth(),date.getDate()));d.setUTCDate(d.getUTCDate()+4-(d.getUTCDay()||7));const yearStart=new Date(Date.UTC(d.getUTCFullYear(),0,1));const weekNo=Math.ceil((((d-yearStart)/86400000)+1)/7);return `${d.getUTCFullYear()}-W${String(weekNo).padStart(2,'0')}`}
+    const temasTop = Object.entries(countBy(datos,'Tema')).sort((a,b)=>b[1]-a[1]).slice(0,5).map(x=>x[0]);
+    const semanas = [...new Set(datos.map(d=>isoWeekKey(parseDate(d.Fecha))))].sort().slice(-4);
+    const datasets = temasTop.map((tema,i)=>({label:tema,data:semanas.map(s=>datos.filter(d=>d.Tema===tema && isoWeekKey(parseDate(d.Fecha))===s).length),borderColor:colores[i],backgroundColor:colores[i],tension:.3}));
+    new Chart(document.getElementById('linea'),{type:'line',data:{labels:semanas,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#c5ced9'}}},scales:{x:{ticks:{color:'#97a5b8'},grid:{color:'#1b2230'}},y:{ticks:{color:'#97a5b8'},grid:{color:'#1b2230'}}}}});
+
+    const territorios=['todos','Córdoba Capital','Interior','Nacional'];
+    const filtros = document.getElementById('filtros');
+    territorios.forEach((t,i)=>{const b=document.createElement('button');b.textContent=t;b.className=i===0?'active':'';b.onclick=()=>{document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderBars(t)};filtros.appendChild(b)});
+    function renderBars(territorio){const maxDate=new Date(Math.max(...datos.map(d=>parseDate(d.Fecha))));const minDate=new Date(maxDate);minDate.setDate(minDate.getDate()-7);const filtrados=datos.filter(d=>parseDate(d.Fecha)>=minDate && (territorio==='todos' || d.Territorio===territorio));const top=Object.entries(countBy(filtrados,'Tema')).sort((a,b)=>b[1]-a[1]);const max=top[0]?.[1]||1;document.getElementById('bars').innerHTML=top.map(([t,v])=>`<div class="bar-row"><div>${t}</div><div class="bar" style="width:${(v/max)*100}%"></div><div>${v}</div></div>`).join('') || '<div class="k">Sin datos para el filtro seleccionado</div>';}
+    renderBars('todos');
+
+    const topMedios=Object.entries(countBy(datos,'Medio')).sort((a,b)=>b[1]-a[1]).slice(0,5);
+    new Chart(document.getElementById('medios'),{type:'bar',data:{labels:topMedios.map(x=>x[0]),datasets:[{data:topMedios.map(x=>x[1]),backgroundColor:'#7ba7f5'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#97a5b8'}},y:{ticks:{color:'#97a5b8'},grid:{color:'#1b2230'}}}}});
+
+    const weekday=['do','lu','ma','mi','ju','vi','sá']; const cnt=[0,0,0,0,0,0,0]; datos.forEach(d=>cnt[parseDate(d.Fecha).getDay()]++);
+    new Chart(document.getElementById('dias'),{type:'bar',data:{labels:weekday,datasets:[{data:cnt,backgroundColor:'#5be3a4'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#97a5b8'}},y:{ticks:{color:'#97a5b8'},grid:{color:'#1b2230'}}}}});
+
+    const ultimas=[...datos].sort((a,b)=>b.Fecha.localeCompare(a.Fecha)).slice(0,10);
+    document.getElementById('feed').innerHTML=ultimas.map(n=>`<div class="item"><div class="f">${n.Fecha}</div><div class="t">${n.Titular}</div><div class="m">${n.Medio}</div></div>`).join('');
+  </script>
 </body>
 </html>
