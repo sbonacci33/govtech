@@ -1,89 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Planes y Alcance</title>
-  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
-  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/main.css', v='2026-02-18') }}" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GovTech | Metodología</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#fafaf8;--text:#111;--muted:#666;--night:#1a1a2e;--line:#ddddda;--green:#5be3a4}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Mono',monospace}
+    a{color:inherit;text-decoration:none}.container{width:min(1120px,92%);margin:0 auto}
+    .nav{position:fixed;inset:0 0 auto 0;z-index:30;background:rgba(250,250,248,.92);border-bottom:1px solid #ecece9;backdrop-filter:blur(8px)}
+    .nav-wrap{display:flex;justify-content:space-between;align-items:center;padding:18px 0}.logo{font:700 1.2rem 'Syne',sans-serif;color:var(--night)}
+    .menu{display:flex;gap:22px;font-size:.8rem;text-transform:uppercase}.hero{padding:130px 0 50px;border-bottom:1px solid var(--line)}
+    .hero h1{font:700 62px/1.02 'Syne',sans-serif;margin:0 0 14px}.hero p{margin:0;max-width:860px;color:var(--muted);font-size:18px}
+    section{padding:58px 0}h2{font:700 36px/1.12 'Syne',sans-serif;margin:0 0 20px}.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.list{margin:0;padding-left:20px}.list li{margin:8px 0}
+    .sources{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.source{padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(0deg,#fff,#fcfcfb)}
+    footer{text-align:center;padding:35px 0;color:var(--muted);font-size:11px}
+    @media(max-width:900px){.hero h1{font-size:42px}.grid,.sources{grid-template-columns:1fr}.menu{gap:12px;font-size:10px}}
+  </style>
 </head>
-<body class="starter-page-page">
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0"><span class="logo-mark">Síntesis 360</span><span class="logo-dot" aria-hidden="true">•</span></a>
-      <nav id="navmenu" class="navmenu"><ul>
-        <li><a href="{{ url_for('home') }}">Nuestro trabajo</a></li>
-        <li><a href="{{ url_for('radar') }}">Radar</a></li>
-        <li><a href="{{ url_for('servicios') }}" class="active">Servicios</a></li>
-        <li><a href="{{ url_for('equipo') }}">Equipo</a></li>
-        <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
-      </ul><i class="mobile-nav-toggle d-xl-none bi bi-list"></i></nav>
-    </div>
-  </header>
-
-  <main class="main">
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='img/features-bg.jpg') }}');">
-      <div class="container position-relative">
-        <h1>Planes y Alcance</h1>
-        <p>Qué incluye el MVP hoy y qué puede escalar en la versión robusta.</p>
-      </div>
-    </div>
-
-    <section class="section">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6">
-            <div class="plan-card h-100">
-              <h3>Incluye el MVP</h3>
-              <ul>
-                <li>Monitoreo de menciones en web/medios (fuentes disponibles).</li>
-                <li>Métricas de evolución: volumen, tendencias y picos.</li>
-                <li>Entregables: dashboard inicial + informe periódico.</li>
-                <li>Frecuencias tentativas: diario/semanal/mensual.</li>
-              </ul>
-              <span class="status-chip status-live">Disponible en MVP</span>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="plan-card h-100">
-              <h3>Escalabilidad posterior</h3>
-              <ul>
-                <li>Integración de redes sociales según disponibilidad de APIs.</li>
-                <li>NLP más avanzado para clasificación de narrativa.</li>
-                <li>Alertas tempranas para eventos críticos.</li>
-                <li>Mayor robustez de infraestructura y conectores.</li>
-              </ul>
-              <span class="status-chip status-soon">Próximamente</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section light-background">
-      <div class="container section-title"><h2>Preguntas frecuentes</h2></div>
-      <div class="container">
-        <div class="faq-item mb-3 p-4 bg-white">
-          <h4>¿Miden Instagram/TikTok?</h4>
-          <p>Depende de APIs y condiciones de acceso; en MVP no está garantizado.</p>
-        </div>
-        <div class="faq-item p-4 bg-white">
-          <h4>¿Dan búsquedas exactas en Google?</h4>
-          <p>No exacto: se usan proxies de interés, por ejemplo Google Trends y señales equivalentes.</p>
-        </div>
-      </div>
-    </section>
+<body>
+  <header class="nav"><div class="container nav-wrap"><a class="logo" href="{{ url_for('home') }}">GovTech</a><nav class="menu"><a href="{{ url_for('radar') }}">Radar</a><a href="{{ url_for('servicios') }}">Servicios</a><a href="{{ url_for('equipo') }}">Equipo</a><a href="{{ url_for('contacto') }}">Contacto</a></nav></div></header>
+  <main>
+    <section class="hero"><div class="container"><h1>Metodología</h1><p>Cómo funciona nuestro sistema de monitoreo político para transformar volumen informativo en señales claras de gestión.</p></div></section>
+    <section><div class="container grid"><article class="card"><h2>Cómo procesamos la agenda</h2><p>Monitoreamos de forma continua fuentes de medios web provinciales y nacionales. Cada nota recolectada se clasifica automáticamente por <strong>tema</strong>, <strong>territorio</strong> y <strong>tono</strong>, para ordenar la agenda y priorizar qué merece atención.</p></article><article class="card"><h2>Qué produce el sistema</h2><ul class="list"><li>Dashboard en tiempo real con evolución de la agenda.</li><li>Detección de temas emergentes y picos de cobertura.</li><li>Análisis de cobertura de referentes políticos.</li><li>Informe ejecutivo semanal para equipos de decisión.</li></ul></article></div></section>
+    <section><div class="container"><h2>Fuentes que integramos</h2><div class="sources"><div class="source">La Voz del Interior</div><div class="source">Cadena 3</div><div class="source">El Doce</div><div class="source">La Mañana de Córdoba</div><div class="source">Infobae</div><div class="source">Télam</div><div class="source">La Nación</div><div class="source">Clarín</div></div></div></section>
   </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Demo / metodología.</span></p></div>
-  </footer>
-
-  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <footer>© 2026 GovTech · Córdoba, Argentina</footer>
 </body>
 </html>

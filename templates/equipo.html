@@ -1,65 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Síntesis 360 | Quiénes somos</title>
-  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
-  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/main.css', v='2026-02-18') }}" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GovTech | Equipo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#fafaf8;--text:#111;--muted:#666;--night:#1a1a2e;--line:#ddddda}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Mono',monospace}
+    .container{width:min(1120px,92%);margin:0 auto}a{color:inherit;text-decoration:none}.nav{position:fixed;inset:0 0 auto 0;background:rgba(250,250,248,.92);border-bottom:1px solid #ecece9;z-index:30;backdrop-filter:blur(8px)}
+    .nav-wrap{display:flex;justify-content:space-between;align-items:center;padding:18px 0}.logo{font:700 1.2rem 'Syne',sans-serif;color:var(--night)}.menu{display:flex;gap:22px;font-size:.8rem;text-transform:uppercase}
+    .hero{padding:130px 0 40px}.hero h1{font:700 56px/1.05 'Syne',sans-serif;margin:0 0 12px}.hero p{margin:0;color:var(--muted);max-width:840px}
+    section{padding:26px 0 56px}h2{font:700 34px/1.1 'Syne',sans-serif;margin:0 0 18px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid var(--line);border-radius:10px;background:#fff;padding:20px}
+    .icon{width:32px;height:32px;margin-bottom:10px}.card h3{font:700 20px/1.1 'Syne',sans-serif;margin:0 0 10px}.card p{margin:0;color:#424242;font-size:13px}
+    .list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.pill{border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:#fff;font-size:12px}
+    footer{text-align:center;padding:35px 0;font-size:11px;color:var(--muted)}@media(max-width:900px){.hero h1{font-size:42px}.grid-3,.list{grid-template-columns:1fr}.menu{gap:12px;font-size:10px}}
+  </style>
 </head>
-<body class="starter-page-page">
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0"><span class="logo-mark">Síntesis 360</span><span class="logo-dot" aria-hidden="true">•</span></a>
-      <nav id="navmenu" class="navmenu"><ul>
-        <li><a href="{{ url_for('home') }}">Nuestro trabajo</a></li>
-        <li><a href="{{ url_for('radar') }}">Radar</a></li>
-        <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
-        <li><a href="{{ url_for('equipo') }}" class="active">Equipo</a></li>
-        <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
-      </ul><i class="mobile-nav-toggle d-xl-none bi bi-list"></i></nav>
-    </div>
-  </header>
-
-  <main class="main">
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ url_for('static', filename='img/features-bg.jpg') }}');">
-      <div class="container position-relative">
-        <h1>Quiénes somos</h1>
-        <p>Equipo en construcción con enfoque en datos, metodología y dashboards de decisión.</p>
-      </div>
-    </div>
-
-    <section class="section">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-4"><div class="method-card h-100"><h4>Equipo en construcción</h4><p>Estamos consolidando perfiles técnicos y de análisis para expandir el producto.</p></div></div>
-          <div class="col-lg-4"><div class="method-card h-100"><h4>Enfoque</h4><p>Datos, métricas, metodología reproducible y visualización clara para toma de decisiones.</p></div></div>
-          <div class="col-lg-4"><div class="method-card h-100"><h4>Principios</h4><p>Transparencia, replicabilidad y respeto por TOS y fuentes oficiales.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section light-background">
-      <div class="container section-title"><h2>Roles actuales (placeholders)</h2></div>
-      <div class="container">
-        <div class="row gy-3">
-          <div class="col-md-4"><div class="plan-card"><h5>Equipo de análisis</h5><p>Definición de temas y calidad de métricas.</p></div></div>
-          <div class="col-md-4"><div class="plan-card"><h5>Ingeniería de datos</h5><p>Conectores, deduplicación y pipelines.</p></div></div>
-          <div class="col-md-4"><div class="plan-card"><h5>Producto y UX</h5><p>Diseño del tablero y experiencia de uso.</p></div></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center mt-4"><p><span>Síntesis 360 — Equipo en construcción.</span></p></div>
-  </footer>
-
-  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<body>
+<header class="nav"><div class="container nav-wrap"><a class="logo" href="{{ url_for('home') }}">GovTech</a><nav class="menu"><a href="{{ url_for('radar') }}">Radar</a><a href="{{ url_for('servicios') }}">Servicios</a><a href="{{ url_for('equipo') }}">Equipo</a><a href="{{ url_for('contacto') }}">Contacto</a></nav></div></header>
+<main class="container">
+<section class="hero"><h1>Equipo / Quiénes somos</h1><p>Somos una consultora de inteligencia política enfocada en Córdoba, con metodología basada en datos para acompañar decisiones de gobierno y comunicación pública.</p></section>
+<section><h2>Por qué existimos</h2><div class="card"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h10" stroke="#1a1a2e" stroke-width="1.6"/></svg><p>El volumen de información política diaria es imposible de procesar de forma manual con consistencia. Nuestro sistema automatiza ese trabajo: releva, ordena y clasifica la agenda para que los equipos de gobierno puedan decidir con más velocidad y mejor contexto.</p></div></section>
+<section><h2>Qué nos diferencia</h2><div class="grid-3"><article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 7h16M4 17h9" stroke="#1a1a2e" stroke-width="1.6"/></svg><h3>Datos reales</h3><p>Trabajamos sobre evidencias medibles de cobertura y volumen, no sobre percepciones.</p></article><article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M7 12h10M12 7v10" stroke="#1a1a2e" stroke-width="1.6"/><circle cx="12" cy="12" r="9" stroke="#1a1a2e" stroke-width="1.6"/></svg><h3>Automatización</h3><p>El sistema corre de forma continua: no hay un analista copiando titulares a mano.</p></article><article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v10l-8 4-8-4V7l8-4Z" stroke="#1a1a2e" stroke-width="1.6"/></svg><h3>Contexto cordobés</h3><p>Entendemos la dinámica política local; no es un producto genérico desconectado del territorio.</p></article></div></section>
+<section><h2>Trabajamos con</h2><div class="list"><div class="pill">Gobiernos provinciales y municipales</div><div class="pill">Legisladores</div><div class="pill">Equipos de campaña</div><div class="pill">Áreas de comunicación institucional</div></div></section>
+</main><footer>© 2026 GovTech · Córdoba, Argentina</footer>
 </body>
 </html>
