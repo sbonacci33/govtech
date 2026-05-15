@@ -46,13 +46,21 @@ def create_app() -> Flask:
     def api_datos():
         return jsonify(cargar_datos_radar())
 
+    @app.route("/informes")
+    def informes() -> str:
+        return render_template("informes.html")
+
+    @app.route("/metodo")
+    def metodo() -> str:
+        return render_template("metodo.html")
+
     @app.route("/servicios")
     def servicios() -> str:
         return render_template("servicios.html")
 
-    @app.route("/equipo")
-    def equipo() -> str:
-        return render_template("equipo.html")
+    @app.route("/direccion")
+    def direccion() -> str:
+        return render_template("direccion.html")
 
     @app.route("/contacto")
     def contacto() -> str:

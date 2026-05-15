@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Síntesis 360 — Inteligencia pública para agenda, opinión y gobernanza{% endblock %}</title>
+  <meta name="description" content="Monitoreo de agenda pública, clima de opinión y conversación política para gobiernos e instituciones. Reportes, indicadores y lectura estratégica desde Córdoba, Argentina.">
+  <meta name="keywords" content="inteligencia pública, agenda pública, opinión pública, comunicación política, gobernanza, monitoreo de medios, Córdoba, reportes ejecutivos, datos, inteligencia artificial, análisis político, comunicación institucional">
+  <meta property="og:title" content="Síntesis 360 — Inteligencia pública para agenda, opinión y gobernanza">
+  <meta property="og:description" content="Monitoreamos agenda, medios, redes y señales digitales para transformar información pública dispersa en reportes, indicadores y decisiones estratégicas.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta name="twitter:title" content="Síntesis 360 — Inteligencia pública">
+  <meta name="twitter:description" content="Agenda, opinión y gobernanza convertidas en lectura estratégica.">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  {% block head_extra %}{% endblock %}
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+    <a class="brand" href="{{ url_for('home') }}">Síntesis 360</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    <nav class="nav" id="mainNav">
+      <a href="{{ url_for('home') }}" class="{% if page=='inicio' %}active{% endif %}">Inicio</a>
+      <a href="{{ url_for('radar') }}" class="{% if page=='radar' %}active{% endif %}">Radar 360</a>
+      <a href="{{ url_for('informes') }}" class="{% if page=='informes' %}active{% endif %}">Informes</a>
+      <a href="{{ url_for('metodo') }}" class="{% if page=='metodo' %}active{% endif %}">Método</a>
+      <a href="{{ url_for('servicios') }}" class="{% if page=='servicios' %}active{% endif %}">Servicios</a>
+      <a href="{{ url_for('direccion') }}" class="{% if page=='direccion' %}active{% endif %}">Dirección</a>
+      <a href="{{ url_for('contacto') }}" class="{% if page=='contacto' %}active{% endif %}">Contacto</a>
+    </nav>
+  </div>
+</header>
+{% block content %}{% endblock %}
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>Síntesis 360</h3>
+      <p>Inteligencia pública para agenda, opinión y gobernanza.</p>
+      <small>Proyecto dirigido por Santiago Bonacci.</small>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <p>Inicio · Radar 360 · Informes · Método · Servicios · Dirección · Contacto</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p>Córdoba, Argentina<br>santibonacci@gmail.com<br>linkedin.com/in/santiagobonacci</p>
+    </div>
+  </div>
+</footer>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>
