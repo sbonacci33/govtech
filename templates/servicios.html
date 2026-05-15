@@ -1,34 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GovTech | Metodología</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#fafaf8;--text:#111;--muted:#666;--night:#1a1a2e;--line:#ddddda;--green:#5be3a4}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Mono',monospace}
-    a{color:inherit;text-decoration:none}.container{width:min(1120px,92%);margin:0 auto}
-    .nav{position:fixed;inset:0 0 auto 0;z-index:30;background:rgba(250,250,248,.92);border-bottom:1px solid #ecece9;backdrop-filter:blur(8px)}
-    .nav-wrap{display:flex;justify-content:space-between;align-items:center;padding:18px 0}.logo{font:700 1.2rem 'Syne',sans-serif;color:var(--night)}
-    .menu{display:flex;gap:22px;font-size:.8rem;text-transform:uppercase}.hero{padding:130px 0 50px;border-bottom:1px solid var(--line)}
-    .hero h1{font:700 62px/1.02 'Syne',sans-serif;margin:0 0 14px}.hero p{margin:0;max-width:860px;color:var(--muted);font-size:18px}
-    section{padding:58px 0}h2{font:700 36px/1.12 'Syne',sans-serif;margin:0 0 20px}.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.list{margin:0;padding-left:20px}.list li{margin:8px 0}
-    .sources{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.source{padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(0deg,#fff,#fcfcfb)}
-    footer{text-align:center;padding:35px 0;color:var(--muted);font-size:11px}
-    @media(max-width:900px){.hero h1{font-size:42px}.grid,.sources{grid-template-columns:1fr}.menu{gap:12px;font-size:10px}}
-  </style>
-</head>
-<body>
-  <header class="nav"><div class="container nav-wrap"><a class="logo" href="{{ url_for('home') }}">GovTech</a><nav class="menu"><a href="{{ url_for('radar') }}">Radar</a><a href="{{ url_for('servicios') }}">Servicios</a><a href="{{ url_for('equipo') }}">Equipo</a><a href="{{ url_for('contacto') }}">Contacto</a></nav></div></header>
-  <main>
-    <section class="hero"><div class="container"><h1>Metodología</h1><p>Cómo funciona nuestro sistema de monitoreo político para transformar volumen informativo en señales claras de gestión.</p></div></section>
-    <section><div class="container grid"><article class="card"><h2>Cómo procesamos la agenda</h2><p>Monitoreamos de forma continua fuentes de medios web provinciales y nacionales. Cada nota recolectada se clasifica automáticamente por <strong>tema</strong>, <strong>territorio</strong> y <strong>tono</strong>, para ordenar la agenda y priorizar qué merece atención.</p></article><article class="card"><h2>Qué produce el sistema</h2><ul class="list"><li>Dashboard en tiempo real con evolución de la agenda.</li><li>Detección de temas emergentes y picos de cobertura.</li><li>Análisis de cobertura de referentes políticos.</li><li>Informe ejecutivo semanal para equipos de decisión.</li></ul></article></div></section>
-    <section><div class="container"><h2>Fuentes que integramos</h2><div class="sources"><div class="source">La Voz del Interior</div><div class="source">Cadena 3</div><div class="source">El Doce</div><div class="source">La Mañana de Córdoba</div><div class="source">Infobae</div><div class="source">Télam</div><div class="source">La Nación</div><div class="source">Clarín</div></div></div></section>
-  </main>
-  <footer>© 2026 GovTech · Córdoba, Argentina</footer>
-</body>
-</html>
+{% extends 'base.html' %}{% set page='servicios' %}
+{% block title %}Servicios — Síntesis 360{% endblock %}
+{% block content %}<main class="container section"><h1>Servicios</h1><p class="lead">Monitoreo, análisis y síntesis para gobiernos e instituciones.</p><div class="grid g2">{% for s in ['Radar de agenda pública','Informes de clima de opinión','Reportes ejecutivos para gestión','Tableros e indicadores','Automatización de monitoreo con IA','Consultoría en comunicación política e inteligencia pública'] %}<article class="card"><h3>{{s}}</h3><p>Servicio diseñado para lectura estratégica de agenda, conversación pública y gobernanza.</p></article>{% endfor %}</div><section class="section"><h2>Modalidades de trabajo</h2><div class="grid g4"><div class="card">Diagnóstico inicial</div><div class="card">Radar periódico</div><div class="card">Informe especial</div><div class="card">Tablero a medida</div></div></section><a class="btn primary" href="{{ url_for('contacto') }}">Contactar</a></main>{% endblock %}
